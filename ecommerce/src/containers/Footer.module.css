@@ -1,0 +1,27 @@
+.bigFooter {
+    display: flex;
+    gap: 6rem;
+    justify-content: center;
+    align-items: center;
+    font-style: sans-serif;
+    background: rgb(111, 197, 111);
+}
+.some {
+    display: grid;
+    gap: 2rem;
+}
+.other {
+    display: grid;
+    gap: 2rem;
+}
+.letter {
+    display: grid;
+    gap: 2rem;
+}
+input {
+    border: 0;
+}
+.editText {
+    width: 14vw;
+    text-decoration: underline;
+} 
