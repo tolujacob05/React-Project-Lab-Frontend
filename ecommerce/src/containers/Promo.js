@@ -4,18 +4,20 @@ import styles from "./Promo.module.css"
 
 const Promo = () => {
     return (
-        <>
-            <div>
-                <h1>Shopping experience <br /> made easier</h1>
-                <div className={styles.buttons}>
-                    <p>Find store nearby</p>
-                    <p>Saved Stores</p>
-                </div>
-            </div>
-            <div className={styles.F3}>
-                <img src={F3} alt="this is an autum promo" />
-            </div>
-        </>
-    )
+      <>
+        <div>
+          <h1>
+            Shopping experience <br /> made easier
+          </h1>
+          <div className={styles.buttons}>
+            <p className={styles.p}>Find store nearby</p>
+            <p className={styles.p}>Saved Stores</p>
+          </div>
+        </div>
+        <div className={styles.F3}>
+          <img src={F3} alt="this is an autum promo" />
+        </div>
+      </>
+    );
 }
 export default Promo;

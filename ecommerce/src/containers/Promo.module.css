@@ -21,7 +21,7 @@ h1 {
     top: 45%;
     left: 90px;
 }
-p {
+.p {
     border: 1px solid rgb(119, 180, 119);
     height: 25px;
     width: 120px;
