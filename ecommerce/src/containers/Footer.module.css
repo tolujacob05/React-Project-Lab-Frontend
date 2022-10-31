@@ -4,7 +4,11 @@
     justify-content: center;
     align-items: center;
     font-style: sans-serif;
-    background: rgb(111, 197, 111);
+    background: #7AE582;
+}
+.bigFooter a {
+    font-family: sans-serif;
+    font-size: 0.9rem;
 }
 .some {
     display: grid;
