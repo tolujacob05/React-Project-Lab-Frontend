@@ -1,0 +1,30 @@
+.have {
+    display: grid;
+    justify-content: center;
+    padding: 10rem;
+    border: 2px solid white;
+    background: white;
+}
+.login {
+    display: inherit;
+    justify-content: center;
+}
+.login a {
+    font-size: 1.5rem;
+    color: blue;
+}
+.or {
+    display: inherit;
+    justify-content: center;
+}
+.or h2 {
+    font-size: 2rem;
+}
+.signup {
+    display: inherit;
+    justify-content: center;
+}
+.signup a {
+    font-size: 1.5rem;
+    color: blue;
+}

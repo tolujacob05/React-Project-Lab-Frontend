@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 2px solid white;
+    height: 40vh;
+    border-radius: 5%;
+    background: #E3F9E5;
+    margin: 1rem;
+}
+.container h6 {
+    font-size: 0.9rem;
+    font-family: sans-serif;
+}
+.text {
+    font-size: 1.5rem;
+    font-family: sans-serif;
+    position: relative;
+    top: -130px;
+    left: 15.5%;
+}
+@media screen and (max-width: 1000px) {
+    .container img {
+       width: 20vw;
+    }
+    
+}

@@ -1,0 +1,129 @@
+/* Saved Item 1 */
+.line h3 {
+    padding: 1rem;
+    margin-left: 2rem;
+}
+.line hr {
+    width: 96vw;
+}
+.item {
+    display: flex;
+    gap: 8rem;
+    margin-left: 2rem;
+    padding: 2rem;
+}
+.item h5 {
+    font-weight: 400;
+    font-family: sans-serif;
+}
+.price h5 {
+    margin-top: 1rem;
+    margin-left: 2rem;
+}
+.add {
+    margin-top: 1rem;
+}
+.stores {
+    border: 2px solid #7AE582;
+    background: #7AE582;
+    padding: 1rem;
+    border-radius: 10px;
+}
+.add h5 {
+    display: flex;
+    justify-content: center;
+}
+.font {
+    display: flex;
+    gap: 0.7rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+.font h6 {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+/* Saved Item 2 */
+.whole hr {
+    width: 96vw;
+}
+.want {
+    display: flex;
+    gap: 8rem;
+    margin-left: 2rem;
+    padding: 2rem;
+}
+.want h5 {
+    font-weight: 400;
+    font-family: sans-serif;
+}
+.picks h5 {
+    margin-top: 1rem;
+    margin-left: 2rem;
+}
+.added {
+    margin-top: 1rem;
+}
+.export {
+    border: 2px solid #7AE582;
+    background: #7AE582;
+    padding: 1rem;
+    border-radius: 10px;
+}
+.added h5 {
+    display: flex;
+    justify-content: center;
+}
+.click {
+    display: flex;
+    gap: 0.7rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+.click h6 {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+/* Saved Item 3 */
+.bother hr {
+    width: 96vw;
+}
+.save {
+    display: flex;
+    gap: 8rem;
+    margin-left: 2rem;
+    padding: 2rem;
+}
+.save h5 {
+    font-weight: 400;
+    font-family: sans-serif;
+}
+.pink h5 {
+    margin-top: 1rem;
+    margin-left: 2rem;
+}
+.bag {
+    margin-top: 1rem;
+}
+.import {
+    border: 2px solid #7AE582;
+    background: #7AE582;
+    padding: 1rem;
+    border-radius: 10px;
+}
+.bag h5 {
+    display: flex;
+    justify-content: center;
+}
+.style {
+    display: flex;
+    gap: 0.7rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+.style h6 {
+    font-size: 1rem;
+    font-weight: 400;
+}
