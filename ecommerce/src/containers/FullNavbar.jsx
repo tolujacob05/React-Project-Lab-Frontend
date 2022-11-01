@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUser, faCircleQuestion, faCartShopping } from '@fortawesome/free-solid-svg-icons'
 
 export default function FullNavbar() {
+  const userInfo =JSON.parse(localStorage.getItem("userInfo"))
   return (
     <>
       <div className="navbar">
@@ -33,7 +34,7 @@ export default function FullNavbar() {
           <div className="account">
             <FontAwesomeIcon icon={faUser} />
             <a href="account" >
-                Account
+                {userInfo.fullName || "account"}
             </a>
           </div>
           <div className="help">
