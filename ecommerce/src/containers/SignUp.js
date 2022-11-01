@@ -14,7 +14,7 @@ const SignUp = () => {
                 <div className={styles.set}>
                     <div className={styles.all}>
                         <h2> Get Started</h2>
-                        <p>Aleady have an account? Log in.</p>
+                        <p>Aleady have an account? <a href="login">Log in.</a></p>
 
                         <div className={styles.user}>
                             <h3>Username</h3>

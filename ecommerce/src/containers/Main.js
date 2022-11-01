@@ -8,6 +8,7 @@ import Account from "./Account"
 import Categories from "./Categories"
 import Store from "./Store"
 import SignUp from "./SignUp"
+import Login from "./Login"
 import ComputerAndGadjets from "./ComputerAndGadjets"
 
 const Main = () => {
@@ -21,6 +22,7 @@ const Main = () => {
                     <Route path="/store" element={<Store />} />
                     <Route path="/account" element={<Account />} />
                     <Route path="/signup" element={<SignUp />} />
+                    <Route path="/login" element={<Login />} />
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/checkout" element={<CheckOut />} />
                     <Route path="/saved" element={<Saved />} />

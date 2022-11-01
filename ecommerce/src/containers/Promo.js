@@ -12,7 +12,7 @@ const Promo = () => {
             </h1>
             <div className={styles.buttons}>
               <p className={styles.p}> Find store nearby </p>
-              <p className={styles.p}> Saved Stores </p>
+              <p className={styles.p}> Saved Stores</p>
             </div>
           </div>
           <div className={styles.F3}>
