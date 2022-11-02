@@ -34,7 +34,7 @@ export default function FullNavbar() {
           <div className="account">
             <FontAwesomeIcon icon={faUser} />
             <a href="account" >
-                {userInfo.fullName || "account"}
+                {userInfo?.fullName || "account"}
             </a>
           </div>
           <div className="help">
