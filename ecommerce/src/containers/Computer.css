@@ -29,7 +29,6 @@
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center;
-    border-bottom: #79767698 solid 0.5px;
     transition: all ease 0.3s;;
   }
   .productImg:hover{
@@ -42,7 +41,7 @@
   .addToCartButton {
     text-align: center;
     background: #7ae582;
-    border: 1px solid #797676;
+   
     border-radius: 8px;
     padding: 5px;
     font-family: sans-serif;

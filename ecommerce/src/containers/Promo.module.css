@@ -1,38 +1,62 @@
 .autum {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url(../containers/Pictures/istockphoto-1340278042-1024x10241.png);
+  background-blend-mode: darken, normal;
+  border-radius: 12px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 40vh;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.autum h1 {
+  font-family: 'Rubik Wet Paint', cursive;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.015em;
+  color: white;
 }
 .shop {
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    margin-left: 5rem;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5rem;
 }
-.F3 img{
-    padding: 20px;
-    height: 60vh;
-    width: 60vw;
+.F3 img {
+  padding: 20px;
+  height: 60vh;
+  width: 60vw;
 }
 .buttons {
-    display: flex;
-    gap: 2rem;
+  display: flex;
+ align-items: center;
+ justify-content: center;
+ column-gap: 30px;
 }
 .buttons p {
-    display: flex;
-    align-items: center;
-    border: 1px solid rgb(119, 180, 119);
-    height: 50px;
-    width: 120px;
-    padding: 5px;
-    padding-left: 1rem;
-    border-radius: 10px;
-    font-size: medium;
-    font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgb(119, 180, 119);
+  height: 50px;
+  width: fit-content;
+  padding: 15px;
+  padding-left: 1rem;
+  border-radius: 10px;
+  font-size: medium;
+  font-family: sans-serif;
+  color: var(--lightGreen);
 }
-@media  screen and (max-width: 1000px) {
-    .F3 img {
-        width: 40vw;
-    }
-    
+@media screen and (max-width: 1000px) {
+  .F3 img {
+    width: 40vw;
+  }
 }
