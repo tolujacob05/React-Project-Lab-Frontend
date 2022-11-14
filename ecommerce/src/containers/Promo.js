@@ -15,9 +15,6 @@ const Promo = () => {
               <p className={styles.p}> Saved Stores</p>
             </div>
           </div>
-          <div className={styles.F3}>
-            <img src={F3} alt="this is an autum promo" />
-          </div>
         </div>
       </>
     );

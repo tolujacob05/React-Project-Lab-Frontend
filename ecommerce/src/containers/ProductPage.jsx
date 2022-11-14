@@ -1,88 +1,153 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./ProductPage.css";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import { Rating } from "react-simple-star-rating";
+import CounterInput from "react-counter-input";
 
 export default function ProductPage() {
-    
-  const productImages = [
-    "https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/L/B/95468_1627270223.jpg",
-    "https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/V/H/95468_1627270248.jpg",
-    "https://www-konga-com-res.cloudinary.com/w_auto,f_auto,fl_lossy,dpr_auto,q_auto/media/catalog/product/Z/P/95468_1627270922.jpg",
-  ];
-  const [imageView, setImageView] = useState(productImages[0]);
+  const { id } = useParams();
+  const [product, setProduct] = useState(null);
+  const [price, setPrice] = useState("");
+  const [rating, setRating] = useState(null);
+
+  useEffect(() => {
+    getProduct();
+    return;
+  }, [id]);
+  const getProduct = () => {
+    var data = "";
+
+    var config = {
+      method: "get",
+      url: "http://localhost:3001/api/v1/products/" + id,
+      data: data,
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data?.data));
+        setProduct(response?.data?.data);
+        setproductImages(response?.data?.data.images);
+        setImageView(response?.data?.data?.images[0]);
+        var parts = response?.data?.data?.price.toString().split(".");
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+        setPrice(parts.join("."));
+        setRating(response?.data?.data?.averageReview);
+      })
+
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+  const handleRating = (rate) => {
+    setRating(rate);
+    console.log(rating);
+    var data = {
+      rate: parseInt(rate),
+    };
+
+    var config = {
+      method: "post",
+      url: `http://localhost:3001/api/v1/reviews/${id}/add`,
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("userToken"),
+      },
+      data: data,
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        setRating(response?.data?.averageReview);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+  const [productImages, setproductImages] = useState([]);
+  const [imageView, setImageView] = useState([]);
 
   return (
     <div className="productPage">
       <div className="imgColumn">
-        <div
-          className="producImages"
-          onClick={() => {
-            setImageView(productImages[0]);
-          }}
-        >
-          <img width="85" src={productImages[0]} alt="product " />
-        </div>
-        <div
-          className="producImages"
-          onClick={() => setImageView(productImages[1])}
-        >
-          <img src={productImages[1]} alt="product " width="85" />
-        </div>
-        <div
-          className="producImages"
-          onClick={() => {
-            setImageView(productImages[2]);
-          }}
-        >
-          <img src={productImages[2]} alt="product " width="85" />
-        </div>
+        {productImages.map((productImage, index) => (
+          <div
+            key={index}
+            className="producImages"
+            onClick={() => {
+              setImageView(productImage);
+            }}
+          >
+            <img width="85" src={productImage} alt="product " />
+          </div>
+        ))}
       </div>
       <div className="imgViewer">
         <img src={imageView} alt="product " />
       </div>
       <div className="productDetails">
-        <p className="productName">HP Notebook 15</p>
-        <svg
-          className="product-review"
-          width="108"
-          height="24"
-          viewBox="0 0 108 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M12.4961 3.21668L14.3837 9.02601L14.4681 9.2858H14.7412H20.8495L15.9078 12.8762L15.6868 13.0367L15.7712 13.2965L17.6588 19.1059L12.7171 15.5155L12.4961 15.3549L12.2751 15.5155L7.33339 19.1059L9.22095 13.2965L9.30536 13.0367L9.08437 12.8762L4.14266 9.2858H10.251H10.5241L10.6085 9.02601L12.4961 3.21668Z"
-            stroke="#636262"
-            stroke-width="0.751948"
+        <p className="productName">{product?.name}</p>
+        <div className="review-container">
+          {/* <svg
+            className="product-review"
+            width="108"
+            height="24"
+            viewBox="0 0 108 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.4961 3.21668L14.3837 9.02601L14.4681 9.2858H14.7412H20.8495L15.9078 12.8762L15.6868 13.0367L15.7712 13.2965L17.6588 19.1059L12.7171 15.5155L12.4961 15.3549L12.2751 15.5155L7.33339 19.1059L9.22095 13.2965L9.30536 13.0367L9.08437 12.8762L4.14266 9.2858H10.251H10.5241L10.6085 9.02601L12.4961 3.21668Z"
+              stroke="#636262"
+              color="orange"x
+              strokeWidth="0.751948"
+            />
+            <path
+              d="M33.248 3.21668L35.1356 9.02601L35.22 9.2858H35.4932H41.6015L36.6598 12.8762L36.4388 13.0367L36.5232 13.2965L38.4108 19.1059L33.469 15.5155L33.248 15.3549L33.0271 15.5155L28.0853 19.1059L29.9729 13.2965L30.0573 13.0367L29.8363 12.8762L24.8946 9.2858H31.0029H31.2761L31.3605 9.02601L33.248 3.21668Z"
+              stroke="#636262"
+              strokeWidth="0.751948"
+            />
+            <path
+              d="M54 3.21668L55.8876 9.02601L55.972 9.2858H56.2451H62.3534L57.4117 12.8762L57.1907 13.0367L57.2751 13.2965L59.1627 19.1059L54.221 15.5155L54 15.3549L53.779 15.5155L48.8373 19.1059L50.7249 13.2965L50.8093 13.0367L50.5883 12.8762L45.6466 9.2858H51.7549H52.028L52.1124 9.02601L54 3.21668Z"
+              stroke="#636262"
+              strokeWidth="0.751948"
+            />
+            <path
+              d="M74.752 3.21668L76.6395 9.02601L76.7239 9.2858H76.9971H83.1054L78.1637 12.8762L77.9427 13.0367L78.0271 13.2965L79.9147 19.1059L74.9729 15.5155L74.752 15.3549L74.531 15.5155L69.5892 19.1059L71.4768 13.2965L71.5612 13.0367L71.3402 12.8762L66.3985 9.2858H72.5068H72.78L72.8644 9.02601L74.752 3.21668Z"
+              stroke="#636262"
+              strokeWidth="0.751948"
+            />
+            <path
+              d="M95.5039 3.21668L97.3915 9.02601L97.4759 9.2858H97.749H103.857L98.9156 12.8762L98.6946 13.0367L98.779 13.2965L100.667 19.1059L95.7249 15.5155L95.5039 15.3549L95.2829 15.5155L90.3412 19.1059L92.2288 13.2965L92.3132 13.0367L92.0922 12.8762L87.1505 9.2858H93.2588H93.5319L93.6163 9.02601L95.5039 3.21668Z"
+              stroke="#636262"
+              strokeWidth="0.751948"
+            />
+          </svg> */}
+          <Rating
+            allowFraction={true}
+            initialValue={rating}
+            onClick={handleRating}
+            transition={true}
+            allowHover={false}
+            disableFillHover={true}
           />
-          <path
-            d="M33.248 3.21668L35.1356 9.02601L35.22 9.2858H35.4932H41.6015L36.6598 12.8762L36.4388 13.0367L36.5232 13.2965L38.4108 19.1059L33.469 15.5155L33.248 15.3549L33.0271 15.5155L28.0853 19.1059L29.9729 13.2965L30.0573 13.0367L29.8363 12.8762L24.8946 9.2858H31.0029H31.2761L31.3605 9.02601L33.248 3.21668Z"
-            stroke="#636262"
-            stroke-width="0.751948"
-          />
-          <path
-            d="M54 3.21668L55.8876 9.02601L55.972 9.2858H56.2451H62.3534L57.4117 12.8762L57.1907 13.0367L57.2751 13.2965L59.1627 19.1059L54.221 15.5155L54 15.3549L53.779 15.5155L48.8373 19.1059L50.7249 13.2965L50.8093 13.0367L50.5883 12.8762L45.6466 9.2858H51.7549H52.028L52.1124 9.02601L54 3.21668Z"
-            stroke="#636262"
-            stroke-width="0.751948"
-          />
-          <path
-            d="M74.752 3.21668L76.6395 9.02601L76.7239 9.2858H76.9971H83.1054L78.1637 12.8762L77.9427 13.0367L78.0271 13.2965L79.9147 19.1059L74.9729 15.5155L74.752 15.3549L74.531 15.5155L69.5892 19.1059L71.4768 13.2965L71.5612 13.0367L71.3402 12.8762L66.3985 9.2858H72.5068H72.78L72.8644 9.02601L74.752 3.21668Z"
-            stroke="#636262"
-            stroke-width="0.751948"
-          />
-          <path
-            d="M95.5039 3.21668L97.3915 9.02601L97.4759 9.2858H97.749H103.857L98.9156 12.8762L98.6946 13.0367L98.779 13.2965L100.667 19.1059L95.7249 15.5155L95.5039 15.3549L95.2829 15.5155L90.3412 19.1059L92.2288 13.2965L92.3132 13.0367L92.0922 12.8762L87.1505 9.2858H93.2588H93.5319L93.6163 9.02601L95.5039 3.21668Z"
-            stroke="#636262"
-            stroke-width="0.751948"
-          />
-        </svg>
+          <span>{rating === 0 ? "no review yet" : `${rating} stars`}</span>
+        </div>
         <div className="priceContainer">
-          <h3>#1,903</h3>
+          <h3>₦{price}</h3>
           <button>compare price</button>
         </div>
         <div className="counter">
-          <span>-</span>
-          <input className="" type="number" min="1" max="99" />
-          <span>+</span>
+          <CounterInput
+            min={0}
+            max={10}
+            btnStyle={{
+              background: "#D9D9D9",
+              borderRadius: "4.28571px 4.28571px 4.28571px 4.28571px",
+            }}
+          />
         </div>
         <div className="addToCartContainer">
           <button className="addToCart">add to cart</button>
@@ -102,12 +167,7 @@ export default function ProductPage() {
         </div>
         <p className="productDetail">Description</p>
         <div className="descriptionbox">
-          <p className="description">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam
-            quaerat, reprehenderit, cum dolores officia maiores, deleniti
-            eligendi possimus natus quod maxime repudiandae quisquam obcaecati
-            laudantium?
-          </p>
+          <p className="description">{product?.description}</p>
         </div>
       </div>
     </div>

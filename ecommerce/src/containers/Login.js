@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   let navigate = useNavigate();
 
   const handleLogin = (e) => {
@@ -26,20 +27,22 @@ const Login = () => {
     console.log(data);
     axios(config)
       .then(function (response) {
-        console.log(JSON.stringify(response.data));
-        if(response?.data?.status === "success"){
-            localStorage.setItem("userToken", response.data.token);
-           localStorage.setItem(
-             "userInfo",
-             JSON.stringify(response.data.data.user)
-           );
-            navigate(`/`);
-        }else{
-            alert("invalid email or password")
+        if (response?.data?.status === "success") {
+          localStorage.setItem("userToken", response.data.token);
+          localStorage.setItem(
+            "userInfo",
+            JSON.stringify(response.data.data.user)
+          );
+          navigate("/");
+        } else {
+          setError(response.data);
+          alert(response.data.err.message);
         }
       })
       .catch(function (error) {
-        console.log(error);
+        // e.preventDefault();
+        console.log(error?.response?.data.message);
+        setError(error?.response?.data?.message);
       });
   };
 
@@ -77,6 +80,9 @@ const Login = () => {
                 }}
               />
             </div>
+            <small className="error" style={{ color: "#d30202" }}>
+              {error}
+            </small>
 
             <div
               className={styles.in}
