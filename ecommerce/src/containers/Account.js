@@ -1,7 +1,10 @@
 import React from "react"
 import FullNavbar from "./FullNavbar"
 import Footer from "./Footer"
-import styles from "./Account.module.css"
+import styles from "./Account.module.css";
+
+
+
 
 const Account = () => {
     return (

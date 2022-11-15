@@ -66,6 +66,7 @@ const Login = () => {
                 }}
               />
             </div>
+            
             <div className={styles.pass}>
               <h3>Password</h3>
               <input

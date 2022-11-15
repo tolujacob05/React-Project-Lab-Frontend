@@ -10,6 +10,7 @@ import Store from "./Store"
 import SignUp from "./SignUp"
 import Login from "./Login"
 import ComputerAndGadjets from "./ComputerAndGadjets"
+import Address from "./Address"
 
 const Main = () => {
     return (
@@ -26,6 +27,8 @@ const Main = () => {
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/checkout" element={<CheckOut />} />
                     <Route path="/saved" element={<Saved />} />
+                    <Route path="/Address" element={<Address />} />
+
                 </Routes>
             </div>
         </Router>  

@@ -1,3 +1,4 @@
+import { Button } from "bootstrap";
 import React from "react"
 import "./Nav.module.css"
 
@@ -10,11 +11,13 @@ const Nav = () => {
                     <li><a href="categories">Categories</a></li>
                     <li><a href="saved">Saved</a></li>
                     <li><a href="fashion">Fashion</a></li>
-                    <li><a href="health and beauty">Health and beauty</a></li>
-                    <li><a href="computerandgadjets">Computer and gadjets</a></li>
+                    <li><a href="health and beauty">Health and Beauty</a></li>
+                    <li><a href="computerandgadjets">Computer and Gadgets</a></li>
                 </ul>
             </nav>
         </div>
+
+        
     )
 }
 

@@ -8,7 +8,7 @@ export default function FullNavbar() {
   return (
     <>
       <div className="navbar">
-        <p className="logos">E-stores</p>
+        <p className="logos">Shopify</p>
         <div className="searchBar">
           <input
             type="text"
@@ -34,7 +34,7 @@ export default function FullNavbar() {
           <div className="account">
             <FontAwesomeIcon icon={faUser} />
             <a href="account" >
-                {userInfo?.fullName || "account"}
+                {userInfo?.fullName || "Account"}
             </a>
           </div>
           <div className="help">
