@@ -10,7 +10,7 @@ export default function ProductPage() {
   const [product, setProduct] = useState(null);
   const [price, setPrice] = useState("");
   const [rating, setRating] = useState(null);
-
+  const [rated, setRated] = useState(false)
   useEffect(() => {
     getProduct();
     return;
@@ -65,7 +65,15 @@ export default function ProductPage() {
       .catch(function (error) {
         console.log(error);
       });
+      setRated(false)
   };
+  useEffect((rate) => {
+    if (rated){
+      handleRating(rate);
+    }
+  
+  }, [rated])
+  
   const [productImages, setproductImages] = useState([]);
   const [imageView, setImageView] = useState([]);
 
@@ -128,7 +136,7 @@ export default function ProductPage() {
           <Rating
             allowFraction={true}
             initialValue={rating}
-            onClick={handleRating}
+            onClick={setRated(true)}
             transition={true}
             allowHover={false}
             disableFillHover={true}
