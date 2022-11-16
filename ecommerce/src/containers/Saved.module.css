@@ -35,9 +35,9 @@
 }
 .font {
     display: flex;
-    gap: 0.7rem;
-    margin-top: 1rem;
-    margin-left: 1rem;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 5px;
 }
 .font h6 {
     font-size: 1rem;
@@ -77,9 +77,9 @@
 }
 .click {
     display: flex;
-    gap: 0.7rem;
-    margin-top: 1rem;
-    margin-left: 1rem;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 5px;
 }
 .click h6 {
     font-size: 1rem;
@@ -119,9 +119,9 @@
 }
 .style {
     display: flex;
-    gap: 0.7rem;
-    margin-top: 1rem;
-    margin-left: 1rem;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 5px;
 }
 .style h6 {
     font-size: 1rem;

@@ -1,4 +1,4 @@
-import React from "react"
+/*import React from "react"
 import "./Nav.module.css"
 
 const Nav = () => {
@@ -19,3 +19,4 @@ const Nav = () => {
 }
 
 export default Nav;
+*/
