@@ -9,7 +9,6 @@ const Img = () => {
         <>
             <div className={styles.thinner}>
                 <span>
-                    <hr/>
                     <div className={styles.line}>
                         <div className={styles.image}>
                             <img src={F15} alt="Bag" />
@@ -28,7 +27,6 @@ const Img = () => {
                         </div>
                     </div>
                 </span>
-                <hr />
             </div>
         </>
     )

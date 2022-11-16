@@ -86,7 +86,7 @@ export default function FullNavbar() {
               />
             </svg>
 
-            <a href="account">{userInfo?.fullName || "account"}</a>
+            <Link to={"/account"}>{userInfo?.fullName || "account"}</Link>
           </div>
           <div className="help">
             <svg
@@ -102,7 +102,7 @@ export default function FullNavbar() {
               />
             </svg>
 
-            <a href="help">Help</a>
+            <Link to="help">Help</Link>
           </div>
           <div className="cart">
             <svg
@@ -127,7 +127,7 @@ export default function FullNavbar() {
               />
             </svg>
 
-            <a href="cart">Cart</a>
+            <Link to="cart">Cart</Link>
           </div>
         </div>
       </div>

@@ -1,14 +1,11 @@
 import React from "react";
 import "./Computer.css";
-import Nav from "./Nav";
+
 
 const ComputerAndGadjets = () => {
   return (
     <>
       <div></div>
-      <div>
-        <Nav />
-      </div>
       <div className="categoryProducts">
         <div className="productCard">
           <div

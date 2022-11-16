@@ -1,32 +1,41 @@
 .recent {
   /* height: 40vh; */
   background: #99c99d;
-  border-radius: 24px 24px 0px 0px;
   padding: 2rem;
   margin: 0 1rem 1rem;
 }
 .shopImg{
   width: 200px;
 }
-
 .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  
-  padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 2px solid white;
+    height: 30vh;
+    background: #E3F9E5;
+    margin: 1rem;
+}
+.container img {
+    border: 2px solid black;
+    background: black;
+}
+a {
+    color: black;
 }
 .container h6 {
   font-size: 0.9rem;
   font-family: sans-serif;
 }
 .text {
-  font-size: 1.5rem;
-  font-family: sans-serif;
-  padding: 1rem;
+    font-size: 1.5rem;
+    font-family: sans-serif;
+    position: relative;
+    left: 10.5%;
+    margin-top: 15px;
 }
 @media screen and (max-width: 1000px) {
   .container img {
-    width: 20vw;
+    width: 10vw;
   }
 }

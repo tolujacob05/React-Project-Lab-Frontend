@@ -19,8 +19,6 @@ const Cart = () => {
     <>
       <PageTitle title={"cart"} />
       <div className={styles.cartPage}>
-        <div className={styles.cart}> Cart </div>
-        <hr />
         <div className={styles.large}>
           <div>
             <div className={styles.line}>
@@ -38,36 +36,38 @@ const Cart = () => {
                 </h5>
                 Remove item
               </div>
-              <div>
-                <Img />
-              </div>
+            </div>
+            <div>
+              <Img />
             </div>
           </div>
 
-          <div className={styles.word}>
-            <h5>Summary</h5>
-            <div className={styles.total}>
-              <div className={styles.sub}>
-                <h5>Subtotal</h5>
-                <p> #5,500</p>
-              </div>
-              <div className={styles.cost}>
-                <h5>Delivery cost</h5>
-                <p>#1,500</p>
-              </div>
-              <hr />
-              <div className={styles.able}>
-                <h5>Total payable</h5>
-                <p>#7,000</p>
-              </div>
-              <hr />
-              <div className={styles.checkButton}>
-                <a href="checkout">Check Out</a>
+          <div className={styles.grid}>
+            <div className={styles.word}>
+              <h5>Summary</h5>
+              <div className={styles.total}>
+                <div className={styles.sub}>
+                  <h5>Subtotal</h5>
+                  <p> #5,500</p>
+                </div>
+                <div className={styles.cost}>
+                  <h5>Delivery cost</h5>
+                  <p>#1,500</p>
+                </div>
+                <hr />
+                <div className={styles.able}>
+                  <h5>Total payable</h5>
+                  <p>#7,000</p>
+                </div>
+                <hr />
+                <div className={styles.checkButton}>
+                  <a href="checkout">Check Out</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-
+          
         <div className={styles.tie}>
           <h4> Payment method</h4>
           <div className={styles.pIcon}>
