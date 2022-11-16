@@ -3,7 +3,7 @@
     height: 90vh;
     background: white;
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-evenly; 
 }
 .place {
     border: 2px solid #E3F9E5;

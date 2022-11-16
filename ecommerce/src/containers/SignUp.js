@@ -11,7 +11,7 @@ const SignUp = () => {
 const [fullName, setFullName] = useState("")
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
-// const [phone, setPhone] = useState("")
+const [phone, setPhone] = useState("")
 let navigate = useNavigate();
 
 
@@ -21,6 +21,7 @@ const  handleSignUp = (e)=>{
     var data = JSON.stringify({
       fullName: fullName,
       email: email,
+      phone: phone,
       password: password,
       passwordConfirm: password,    
       role: "shopOwner",
@@ -94,9 +95,9 @@ const  handleSignUp = (e)=>{
                   type="tel"
                   placeholder="Phone Number"
                   className={styles.name}
-                //   onChange={(e) => {
-                //     setPhone(e.target.value);
-                //   }}
+                  onChange={(e) => {
+                    setPhone(e.target.value);
+                  }}
                 />
               </div>
               <div className={styles.pass}>

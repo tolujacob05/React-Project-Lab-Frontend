@@ -6,19 +6,19 @@ import CheckOut from "./CheckOut";
 import Saved from "./Saved";
 import Account from "./Account";
 import Categories from "./Categories";
-import SavedStores from "./SavedStores";
+import Shop from "./Shop";
+
 import SignUp from "./SignUp";
 import Login from "./Login";
 import ComputerAndGadjets from "./ComputerAndGadjets";
 import ProductPage from "./ProductPage";
 import FullNavbar from "./FullNavbar";
 import Footer from "./Footer";
-import Shoprite from "./Shoprite";
-import Fashion from "./Fashion";
-import FindNearbyStores from "./FindNearbyStores";
-
-
+import SavedStores from "./SavedStores";
+import Profile from "./Profile";
 const Main = () => {
+
+  const loggedIn = localStorage.getItem("userToken")
   return (
     <Router>
       <FullNavbar />
@@ -27,18 +27,15 @@ const Main = () => {
           <Route exact path="/" element={<HomePage />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/computerandgadjets" element={<ComputerAndGadjets />} />
-          <Route path="/savedstores" element={<SavedStores />} />
-          <Route path="/account" element={<Account />} />
+          <Route path="/account" element={loggedIn?<Profile />:<Account />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/saved" element={<Saved />} />
           <Route path="/products/:id" element={<ProductPage />} />
-          <Route path="/shoprite" element={<Shoprite />} />
-          <Route path="/fashion" element={<Fashion />} />
-          <Route path="/findnearbystores" element={<FindNearbyStores />} />
-
+          <Route path="/shops/:name" element={<Shop />} />
+          <Route path="/savedstores" element={<SavedStores />} />
         </Routes>
       </div>
       <Footer />
