@@ -1,9 +1,12 @@
 .recent {
-  height: 40vh;
+  /* height: 40vh; */
   background: #99c99d;
   border-radius: 24px 24px 0px 0px;
-  padding: 1rem;
+  padding: 2rem;
   margin: 0 1rem 1rem;
+}
+.shopImg{
+  width: 200px;
 }
 
 .container {

@@ -7,8 +7,11 @@ body {
     margin-left: 4rem;
     padding: 10px;
 }
+.cartPage{
+    padding: 5%;
+}
 hr {
-    width: 70vw;
+    width: 60vw;
 }
 .large {
     display: flex;    

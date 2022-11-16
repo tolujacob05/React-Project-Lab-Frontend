@@ -7,6 +7,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap');
 
 * {
+   -webkit-tap-highlight-color:transparent;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -15,3 +16,6 @@
 body {
   background: rgb(245, 240, 240);
 }
+
+div::-moz-selection { background:transparent; }
+div::selection { background:transparent; }

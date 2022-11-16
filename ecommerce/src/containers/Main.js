@@ -6,6 +6,7 @@ import CheckOut from "./CheckOut";
 import Saved from "./Saved";
 import Account from "./Account";
 import Categories from "./Categories";
+import Shop from "./Shop";
 import Store from "./Store";
 import SignUp from "./SignUp";
 import Login from "./Login";
@@ -13,7 +14,10 @@ import ComputerAndGadjets from "./ComputerAndGadjets";
 import ProductPage from "./ProductPage";
 import FullNavbar from "./FullNavbar";
 import Footer from "./Footer";
+import Profile from "./Profile";
 const Main = () => {
+
+  const loggedIn = localStorage.getItem("userToken")
   return (
     <Router>
       <FullNavbar />
@@ -23,13 +27,14 @@ const Main = () => {
           <Route path="/categories" element={<Categories />} />
           <Route path="/computerandgadjets" element={<ComputerAndGadjets />} />
           <Route path="/store" element={<Store />} />
-          <Route path="/account" element={<Account />} />
+          <Route path="/account" element={loggedIn?<Profile />:<Account />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/saved" element={<Saved />} />
           <Route path="/products/:id" element={<ProductPage />} />
+          <Route path="/shops/:name" element={<Shop />} />
         </Routes>
       </div>
       <Footer />

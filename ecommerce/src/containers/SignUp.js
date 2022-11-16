@@ -21,6 +21,7 @@ const  handleSignUp = (e)=>{
     var data = JSON.stringify({
       fullName: fullName,
       email: email,
+      phone: phone,
       password: password,
       passwordConfirm: password,    
       role: "shopOwner",
