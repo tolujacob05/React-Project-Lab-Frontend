@@ -17,9 +17,8 @@ const StorePage = () => {
 
     axios(config)
       .then(function (response) {
-        console.log(JSON.stringify(response.data));
         setShops(response?.data?.data?.shops);
-        console.log(shops);
+        
       })
       
       .catch(function (error) {
@@ -32,25 +31,14 @@ const StorePage = () => {
       <section className={styles.container}>
         {shops?.map((shop, index) =>
           index < 6 ? (
-            <Link to={`/shops/${shop?.name}`} className="card">
+            <Link to={`/shops/${shop?.name}/${shop._id}`} className="card">
               <img className={styles.shopImg} src={shop?.image}  alt="Shop" />
               <h6>{shop?.name}</h6>
             </Link>
           ) : null
         )}
 
-        {/* <div>
-          <img src={F12} alt="Shop" />
-          <h6> Save Mart</h6>
-        </div>
-        <div>
-          <img src={F12} alt="Shop" />
-          <h6> Walmart</h6>
-        </div>
-        <div>
-          <img src={F12} alt="Shop" />
-          <h6> Walmart</h6>
-        </div> */}
+       
       </section>
     </div>
   );

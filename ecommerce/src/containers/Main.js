@@ -34,7 +34,7 @@ const Main = () => {
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/saved" element={<Saved />} />
           <Route path="/products/:id" element={<ProductPage />} />
-          <Route path="/shops/:name" element={<Shop />} />
+          <Route path="/shops/:name/:id" exact element={<Shop />} />
           <Route path="/savedstores" element={<SavedStores />} />
         </Routes>
       </div>
