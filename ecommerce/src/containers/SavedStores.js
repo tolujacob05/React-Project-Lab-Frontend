@@ -1,66 +1,84 @@
-import React, { useEffect, useState } from "react"
-import styles from "./SavedStores.module.css"
-import F2 from "./Pictures/F2.png"
-import F3 from "./Pictures/F3.png"
-import F4 from "./Pictures/F4.png"
-import F5 from "./Pictures/F5.png"
-import axios from "axios"
+import React, { useEffect, useState } from "react";
+import styles from "./SavedStores.module.css";
+import axios from "axios";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom"
-import { Rating } from "react-simple-star-rating"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Link } from "react-router-dom";
+import { Rating } from "react-simple-star-rating";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PageTitle from "./PageTitle";
 const SavedStores = () => {
-const [savedStores, setSavedStores] = useState([])
+  const [savedStores, setSavedStores] = useState([]);
 
-useEffect(() => {
-   var data = "";
+  const getSavedStore = () => {
+    var data = "";
 
-  var config = {
-    method: "get",
-    url: "http://localhost:3001/api/v1/savestore",
-    headers: {
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNWQ0YzU2MDkwYzY5YmU4ZTMxNDQ1ZCIsImlhdCI6MTY2NzA4NTM1OCwiZXhwIjoxNjY5Njc3MzU4fQ.zzMey1k94keNc0ovtRtJWDa3yPCs98thH_Wbpted1gw",
-    },
-    data: data,
+    var config = {
+      method: "get",
+      url: "http://localhost:3001/api/v1/savedstores",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("userToken"),
+      },
+      data: data,
+    };
+
+    axios(config)
+      .then(function (response) {
+        setSavedStores(response?.data?.savedStores);
+        console.log(savedStores);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
-  axios(config)
-    .then(function (response) {
-      
-      setSavedStores(response?.data?.savedStores);
-      console.log(savedStores);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+  useEffect(() => {
+    getSavedStore();
+  }, []);
 
-}, [])
+  const handleDeleteStore = (id) => {
+    var data = "";
+    console.log(id);
+    var config = {
+      method: "delete",
+      url: "http://localhost:3001/api/v1/savedstores/" + id,
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("userToken"),
+      },
+      data: data,
+    };
 
-    return (
-      <>
-        <div className={styles.header}>
-          <h1>Saved Stores</h1>
+    axios(config)
+      .then(function (response) {
+        getSavedStore();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  return (
+    <>
+      <PageTitle title={"Saved stores"} />
+      <section className={styles.bigSection}>
+        <div className={styles.bar}>
+          <ul>
+            <li>
+              <a href="home">Home</a>
+            </li>
+            <li>
+              <a href="findnearbystores">Find nearby stores</a>
+            </li>
+            <li>
+              <a href="savedstores">Saved Stores</a>
+            </li>
+            <li>
+              <a href="recentstores">Recent Stores</a>
+            </li>
+          </ul>
         </div>
-        <section className={styles.bigSection}>
-          <div className={styles.bar}>
-            <ul>
-              <li>
-                <a href="home">Home</a>
-              </li>
-              <li>
-                <a href="findnearbystores">Find nearby stores</a>
-              </li>
-              <li>
-                <a href="savedstores">Saved Stores</a>
-              </li>
-              <li>
-                <a href="recentstores">Recent Stores</a>
-              </li>
-            </ul>
-          </div>
-          <div className={styles.largeCard}>
-            {savedStores?.map((savedStore) => (
+        <div className={styles.largeCard}>
+          {savedStores.length > 0 ? (
+            savedStores?.map((savedStore) => (
               <div key={savedStore?._id} className={styles.card}>
                 <div className={styles.shoprite}>
                   <a href="shoprite">
@@ -111,7 +129,16 @@ useEffect(() => {
                   />
                 </div>
                 <div className={styles.visited}>
-                  <div className={styles.click} style={{ display: "flex", alignItems:"center",justifyContent:"flex-start" }}>
+                  <div
+                    className={styles.click}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "flex-start",
+                      cursor: "pointer",
+                    }}
+                    onClick={() => handleDeleteStore(savedStore?.shop?._id)}
+                  >
                     <FontAwesomeIcon icon={faTrashCan} />
                     <h6>Remove item</h6>
                   </div>
@@ -122,11 +149,16 @@ useEffect(() => {
                   </Link>
                 </div>
               </div>
-            ))}
-          </div>
-        </section>
-      </>
-    );
-}
+            ))
+          ) : (
+            <h3 style={{ textAlign: "center", margin: "auto" }}>
+              No product saved yet
+            </h3>
+          )}
+        </div>
+      </section>
+    </>
+  );
+};
 
 export default SavedStores;

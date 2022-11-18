@@ -1,7 +1,15 @@
 .autum {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(./Pictures/F1.png);
+background-blend-mode: darken, normal;
+background-repeat: no-repeat;
+background-size: cover;
+border-radius: 12px;
+letter-spacing: 0.015em;
+height: 300px;
+margin: 20px;
 }
 .F1 img{
     filter: blur(3px);
@@ -14,15 +22,19 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    left: 30%;
+   
 }
 .made h1 {
     font-family: 'Rubik Wet Paint', cursive;
+    text-align: center;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 72px;
 }
 .made h2 {
-    font-family: 'Rubik Wet Paint', cursive;;
-    position: relative;
-    left: 20%;
+    font-family: 'Rubik Wet Paint' ;
+    
+    
 }
 .shop h1 {
     color: aliceblue;
@@ -34,7 +46,8 @@
 }
 .buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    column-gap: 30px;
 }
 .buttons h3 {
     display: flex;

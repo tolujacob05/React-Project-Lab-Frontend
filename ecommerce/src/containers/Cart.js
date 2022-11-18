@@ -1,11 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Cart.module.css";
 import F14 from "./Pictures/F14.png";
 import Img from "./Img";
-import F13 from "./Pictures/F13.png";
-import F16 from "./Pictures/F16.png";
-import F17 from "./Pictures/F17.png";
-import F18 from "./Pictures/F18.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTrashCan,
@@ -13,8 +9,33 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FaCcVisa, FaCcMastercard } from "react-icons/fa";
 import PageTitle from "./PageTitle";
+import axios from "axios";
 
 const Cart = () => {
+  const [savedProducts, setSavedProducts] = useState([]);
+
+  useEffect(() => {
+    var data = "";
+
+    var config = {
+      method: "get",
+      url: "http://localhost:3001/api/v1/savedproducts/",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("userToken"),
+      },
+      data: data,
+    };
+
+    axios(config)
+      .then(function (response) {
+        setSavedProducts(response?.data?.SavedProducts);
+        console.log(savedProducts);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <>
       <PageTitle title={"cart"} />
@@ -67,7 +88,7 @@ const Cart = () => {
             </div>
           </div>
         </div>
-          
+
         <div className={styles.tie}>
           <h4> Payment method</h4>
           <div className={styles.pIcon}>
@@ -80,22 +101,18 @@ const Cart = () => {
         <div className={styles.tank}>
           <div className={styles.things}>Saved Items</div>
           <div className={styles.saved}>
-            <div className={styles.watch}>
-              <img src={F16} alt="watch" />
-              <h6> Watch </h6>
-            </div>
-            <div className={styles.glasses}>
-              <img src={F17} alt="glasses" />
-              <h6> Glasses </h6>
-            </div>
-            <div className={styles.belt}>
-              <img src={F18} alt="belt" />
-              <h6> Belt </h6>
-            </div>
-            <div className={styles.suit}>
-              <img src={F13} alt="suit" />
-              <h6> Suit </h6>
-            </div>
+            {
+              savedProducts.length>0 ?
+            savedProducts?.map((savedProduct) => (
+              <div key={savedProduct?._id} className={styles.watch}>
+                <img
+                  width={150}
+                  src={savedProduct?.product?.images[0]}
+                  alt="watch"
+                />
+                <p> {savedProduct?.product?.name} </p>
+              </div>
+            )):<h3 style={{textAlign:"center", margin: "auto"}}>No product saved yet</h3>}
           </div>
         </div>
 

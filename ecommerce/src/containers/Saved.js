@@ -1,90 +1,67 @@
-import React from "react";
-
-import styles from "./Saved.module.css";
-import F14 from "./Pictures/F14.png";
-import F20 from "./Pictures/F20.png";
-import F19 from "./Pictures/F19.png";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import "./Saved.css";
+import F20 from "./Pictures/F20.png";
+import axios from "axios";
+import PageTitle from "./PageTitle";
 
-const Saved = () => (
-  <>
-    <div></div>
-    <div className={styles.line}>
-      <h3>Saved Items</h3>
-      <hr />
-    </div>
-    <div className={styles.item}>
-      <div className={styles.price}>
-        <img src={F14} alt="Shoes" />
-        <h5>#3,000</h5>
-      </div>
-      <h5>
-        labore et dolore magna aliqua.
-        <br /> Ut enim ad minim veniam, <br /> quis nostrud exercitation ullamco
-        laboris nisi ut <br /> aliquip ex ea commodo
-      </h5>
-      <div className={styles.add}>
-        <div className={styles.stores}>
-          <h5>Add to Cart</h5>
-        </div>
-        <div className={styles.font}>
-          <FontAwesomeIcon icon={faTrashCan} />
-          <h6>Remove item</h6>
-        </div>
-      </div>
-    </div>
+const Saved = () => {
+  const [savedProducts, setSavedProducts] = useState([]);
 
-    <div className={styles.whole}>
-      <hr />
-    </div>
-    <div className={styles.want}>
-      <div className={styles.picks}>
-        <img src={F20} alt="shirt" />
-        <h5>#12,000</h5>
-      </div>
-      <h5>
-        labore et dolore magna aliqua.
-        <br /> Ut enim ad minim veniam, <br /> quis nostrud exercitation ullamco
-        laboris nisi ut <br /> aliquip ex ea commodo
-      </h5>
-      <div className={styles.added}>
-        <div className={styles.export}>
-          <h5>Add to Cart</h5>
-        </div>
-        <div className={styles.click}>
-          <FontAwesomeIcon icon={faTrashCan} />
-          <h6>Remove item</h6>
-        </div>
-      </div>
-    </div>
+  useEffect(() => {
+    var data = "";
 
-    <div className={styles.bother}>
-      <hr />
-    </div>
-    <div className={styles.save}>
-      <div className={styles.pink}>
-        <img src={F19} alt="Pink Bag" />
-        <h5>#6,500</h5>
-      </div>
-      <h5>
-        labore et dolore magna aliqua.
-        <br /> Ut enim ad minim veniam, <br /> quis nostrud exercitation ullamco
-        laboris nisi ut <br /> aliquip ex ea commodo
-      </h5>
-      <div className={styles.bag}>
-        <div className={styles.import}>
-          <h5>Add to Cart</h5>
-        </div>
-        <div className={styles.style}>
-          <FontAwesomeIcon icon={faTrashCan} />
-          <h6>Remove item</h6>
-        </div>
-      </div>
-    </div>
+    var config = {
+      method: "get",
+      url: "http://localhost:3001/api/v1/savedproducts/",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("userToken"),
+      },
+      data: data,
+    };
 
-    <div></div>
-  </>
-);
-
+    axios(config)
+      .then(function (response) {
+        setSavedProducts(response?.data?.SavedProducts);
+        console.log(savedProducts);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
+  return (
+    <div>
+      <PageTitle title={"Saved Item"} />
+      <div className="savedProductContainer">
+        {savedProducts?.map((savedProduct) => (
+          <div key={savedProduct?._id} className="savedProduct">
+            <img src={savedProduct?.product?.images[0]} alt="saved product" />
+            <div className="productDescription">
+              <p>
+                {savedProduct?.product?.description.length > 100
+                  ? savedProduct?.product?.description.substring(0, 100) + "..."
+                  : savedProduct?.product?.description}
+              </p>
+            </div>
+            <div className="actions">
+              <button style={{ padding: "5px 20px" }}>add to Cart</button>
+              <div
+                className="deletebutton"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <FontAwesomeIcon icon={faTrashCan} />
+                <h6>Remove item</h6>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 export default Saved;

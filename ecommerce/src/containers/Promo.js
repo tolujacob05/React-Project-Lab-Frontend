@@ -1,22 +1,21 @@
 import React from "react"
-import F1 from "./Pictures/F1.png"
 import styles from "./Promo.module.css"
 
 const Promo = () => {
   return (
     <>
       <div className={styles.autum}>
-        <div className={styles.F1}>
+        {/* <div className={styles.F1}>
           <img src={F1} alt="this is a promo" />
-        </div>
+        </div> */}
         <div className={styles.shop}>
           <div className={styles.made}>
             <h1>
               Shopping experience
-            </h1>
-            <h2>
+            <br />
               made easier
-            </h2>
+            </h1>
+            <br />
           </div>
           <div className={styles.buttons}>
             <div className={styles.find}>
