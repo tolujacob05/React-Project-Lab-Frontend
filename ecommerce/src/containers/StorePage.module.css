@@ -20,22 +20,111 @@
     border: 2px solid black;
     background: black;
 }
-a {
-    color: black;
-}
 .container h6 {
   font-size: 0.9rem;
   font-family: sans-serif;
 }
 .text {
-    font-size: 1.5rem;
-    font-family: sans-serif;
-    position: relative;
-    left: 10.5%;
-    margin-top: 15px;
+  font-size: 1.5rem;
+  font-family: sans-serif;
+}
+.best {
+  margin: 10px;
+  border: 2px solid white;
+  background: white;
+}
+.best h4 {
+  padding: 10px;
+}
+.prices {
+  display: flex;
+  justify-content: space-evenly;
+}
+.chroma {
+  border: 8px solid white;
+  background: rgb(239, 234, 234);
+  border-radius: 10%; 
+}
+.chroma img {
+  padding: 1rem;
+}
+.chroma h5 {
+  display: grid;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-family: sans-serif;
+}
+.chroma h6 {
+  display: grid;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-family: sans-serif;
+}
+.sun {
+  border: 8px solid white;
+  background: rgb(239, 234, 234);
+  border-radius: 10%; 
+}
+.sun img {
+  padding: 1rem;
+}
+.sun h5 {
+  display: grid;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-family: sans-serif;
+}
+.sun h6 {
+  display: grid;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-family: sans-serif;
+}
+.tomato {
+  border: 8px solid white;
+  background: rgb(239, 234, 234);
+  border-radius: 10%; 
+}
+.tomato img {
+  padding: 1rem;
+}
+.tomato h5 {
+  display: grid;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-family: sans-serif;
+}
+.tomato h6 {
+  display: grid;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-family: sans-serif;
+}
+.corn {
+  border: 8px solid white;
+  background: rgb(239, 234, 234);
+  border-radius: 10%; 
+}
+.corn img {
+  padding: 1rem;
+}
+.corn h5 {
+  display: grid;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-family: sans-serif;
+}
+.corn h6 {
+  display: grid;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-family: sans-serif;
 }
 @media screen and (max-width: 1000px) {
   .container img {
     width: 10vw;
+  }
+  .prices img {
+    width: 20vw;
   }
 }

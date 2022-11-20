@@ -7,7 +7,6 @@ import Saved from "./Saved";
 import Account from "./Account";
 import Categories from "./Categories";
 import Shop from "./Shop";
-
 import SignUp from "./SignUp";
 import Login from "./Login";
 import ComputerAndGadjets from "./ComputerAndGadjets";
@@ -16,6 +15,9 @@ import FullNavbar from "./FullNavbar";
 import Footer from "./Footer";
 import SavedStores from "./SavedStores";
 import Profile from "./Profile";
+import FindNearbyStores from "./FindNearbyStores";
+
+
 const Main = () => {
 
   const loggedIn = localStorage.getItem("userToken")
@@ -36,6 +38,7 @@ const Main = () => {
           <Route path="/products/:id" element={<ProductPage />} />
           <Route path="/shops/:name" element={<Shop />} />
           <Route path="/savedstores" element={<SavedStores />} />
+          <Route path="/findnearbystores" element={<FindNearbyStores />} />
         </Routes>
       </div>
       <Footer />

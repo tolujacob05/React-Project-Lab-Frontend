@@ -126,7 +126,6 @@ body {
     display: grid;
     align-items: center;
     justify-content: center;
-    margin-left: 50rem;
 }
 .tie h4 {
     display: flex;
@@ -184,15 +183,15 @@ body {
     .saved img {
         width: 20vw;
     }
-    .tie {
+    /*.tie {
         display: flex;
         align-items: flex-start;
-    }
-    .tie h4 {
+    }*/
+    /*.tie h4 {
         font-size: 0.7rem;
     }
     .pIcon {
         font-size: 1rem;
-    }
+    }*/
 }
 

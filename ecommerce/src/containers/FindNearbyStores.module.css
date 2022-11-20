@@ -1,0 +1,31 @@
+.shoprite {
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid white;
+    background-color: white;
+    margin: 20px;
+}
+.shoprite h5 {
+    display: inherit;
+    align-items: center;
+}
+.shoprite svg {
+    display: inherit;
+    align-items: center;
+}
+/* Skymall */
+.skymall {
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid white;
+    background-color: white;
+    margin: 20px;
+}
+.skymall h5 {
+    display: inherit;
+    align-items: center;
+}
+.skymall svg {
+    display: inherit;
+    align-items: center;
+}
