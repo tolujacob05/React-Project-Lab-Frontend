@@ -124,10 +124,11 @@ h5 {
   font-family: sans-serif;
 }
 .tie {
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  margin-left: 50rem;
+
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
 }
 .tie h4 {
   display: flex;
@@ -190,17 +191,19 @@ h5 {
   justify-content: center;
 }
 @media screen and (max-width: 1000px) {
-  .saved img {
-    width: 20vw;
-  }
-  .tie {
-    display: flex;
-    align-items: flex-start;
-  }
-  .tie h4 {
-    font-size: 0.7rem;
-  }
-  .pIcon {
-    font-size: 1rem;
-  }
+    .saved img {
+        width: 20vw;
+    }
+    /*.tie {
+        display: flex;
+        align-items: flex-start;
+    }*/
+    /*.tie h4 {
+        font-size: 0.7rem;
+    }
+    .pIcon {
+        font-size: 1rem;
+    }*/
 }
+
+

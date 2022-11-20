@@ -55,6 +55,9 @@
     margin-right: 5rem;
     margin-top: 1rem;
 }
+.in a {
+    color: black;
+}
 .split {
     display: flex;
     justify-content: space-between;

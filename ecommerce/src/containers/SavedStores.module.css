@@ -50,8 +50,10 @@
     align-items: center;
     background: white;
     width: 70vw;
+
     margin-bottom: 20px;
     padding: 10px;
+
 }
 .card img {
     margin: 1rem;
