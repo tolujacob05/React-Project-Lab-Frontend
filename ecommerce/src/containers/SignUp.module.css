@@ -11,13 +11,12 @@
     display: flex;
 }
 .set {
-    border: 2px solid black;
     width: 50vw;
     border-radius: 10px;
 }
 .all {
     margin-left: 6rem;
-    margin-top: 5rem;
+    margin-top: 3.5rem;
 }
 .all h2 {
     font-family: sans-serif;
@@ -41,6 +40,11 @@
     font-weight: 400;
     height: 35px;
     width: 80%;
+    border: none;
+    border-bottom: solid black 0.5px !important;
+    outline: none !important;
+    
+    background-color: transparent;
     box-shadow: none;
 }
 .in {

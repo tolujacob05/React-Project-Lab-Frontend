@@ -60,11 +60,15 @@ button {
   all: initial !important;
   text-align: center !important;
   background: #7ae582 !important;
-  border: 1px solid #797676 !important;
   border-radius: 8px !important;
   padding: 5px !important;
   font-size: 14px !important;
+  width: 150px !important;
    font-family: 'Poppins', sans-serif !important;
+   z-index: 100;
+}
+button:hover{
+  cursor: pointer !important;
 }
 .addToCartContainer{
     display: flex;

@@ -9,41 +9,74 @@ import PageTitle from "./PageTitle";
 import { Rating } from "react-simple-star-rating";
 
 export default function Shop() {
-  const { name } = useParams();
+  const { name, id } = useParams();
   // const [active, setActive] = useState("")
   const [category, setCategory] = useState("");
+  const [allProducts, setAllProducts] = useState([]);
   const [products, setProducts] = useState([]);
- 
+
   useEffect(() => {
     getProducts();
     return;
-  }, [category]);
+  }, []);
+
   const getProducts = () => {
     var data = "";
 
     var config = {
       method: "get",
-      url:
-        category === ""
-          ? "http://localhost:3001/api/v1/products"
-          : "http://localhost:3001/api/v1/products/categories/" + category,
+      url: "http://localhost:3001/api/v1/products/shop/" + id,
+
+      data: data,
+    };
+
+    axios(config)
+      .then(async function (response) {
+        setAllProducts(response?.data?.data);
+        setProducts(response?.data?.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+  useEffect(() => {
+    if (category !== "") {
+      let categoryProduct = allProducts.filter((product) => {
+        if (product.category === category) return product;
+      });
+      setProducts(categoryProduct);
+    } else {
+      setProducts(allProducts);
+    }
+    return;
+  }, [category, allProducts]);
+
+  const setActive = (category) => {
+    setCategory(category);
+  };
+  const addToCart = (id) => {
+    var data = {
+      productId: id,
+      quantity: 1,
+    };
+    var config = {
+      method: "post",
+      url: "http://localhost:3001/api/v1/carts",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("userToken"),
+      },
       data: data,
     };
 
     axios(config)
       .then(function (response) {
-        setProducts(response.data.data);
-        console.log(products);
+        console.log(JSON.stringify(response.data));
       })
       .catch(function (error) {
         console.log(error);
       });
   };
 
-  const setActive = (category) => {
-    setCategory(category);
-  };
-  
   return (
     <>
       <div
@@ -56,17 +89,21 @@ export default function Shop() {
           padding: "10px 2% 3px",
         }}
       >
-        <Link to={"/"}
+        <Link
+          to={"/"}
           className="breadcrumb-element"
           style={{ color: "black !important" }}
         >
           home
         </Link>
         <span> &gt;</span>
-        <Link className="breadcrumb-element">{name}</Link> <span> &gt;</span>
+        <Link className="breadcrumb-element" to={""}>
+          {name}
+        </Link>{" "}
+        <span> &gt;</span>
         <Link className="breadcrumb-element">{category}</Link>
       </div>
-      <PageTitle title={category === "" ?name: category} />
+      <PageTitle title={category === "" ? name : category} />
       <div className="categoryPage">
         <div className="categoryList">
           <div
@@ -147,7 +184,7 @@ export default function Shop() {
             style={{
               background:
                 category === "babies and kids" ? "#7ae582" : "#E3f9e5",
-              color: category === "Babies and Kids" ? "#ffffff" : null,
+              color: category === "babies and kids" ? "#ffffff" : null,
             }}
           >
             <p>Babies and Kids</p>
@@ -194,6 +231,9 @@ export default function Shop() {
         </div>
         <div className="categoryProducts">
           {products?.map((product) => {
+            if (products.length < 1) {
+              return <div>No product in this category yet</div>;
+            }
             return (
               <Link
                 to={`/products/${product?._id}`}
@@ -224,7 +264,14 @@ export default function Shop() {
                   allowFraction={true}
                   initialValue={product?.averageReview}
                 />
-                <div className="addToCartButton">Add To Cart</div>
+                <button
+                  className="addToCartButton"
+                  onClick={() => {
+                    addToCart();
+                  }}
+                >
+                  Add To Cart
+                </button>
               </Link>
             );
           })}

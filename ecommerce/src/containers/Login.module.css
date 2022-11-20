@@ -6,7 +6,6 @@
     display: flex;
 }
 .set {
-    border: 2px solid black;
     width: 50vw;
     border-radius: 10px;
 }
@@ -30,6 +29,10 @@
     height: 35px;
     width: 80%;
     box-shadow: none;
+     border: none;
+    border-bottom: solid black 0.5px !important;
+    outline: none !important;
+    background-color: transparent;
 }
 .in {
     margin-bottom: 48px;
@@ -43,7 +46,8 @@
     margin-top: 48px;
     display: flex;
     justify-content: center;
-    font-size: 18px
+    font-size: 18px;
+    cursor: pointer;
 }
 .in p {
     display: flex;

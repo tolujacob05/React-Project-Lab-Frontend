@@ -21,9 +21,8 @@ const StorePage = () => {
 
     axios(config)
       .then(function (response) {
-        console.log(JSON.stringify(response.data));
         setShops(response?.data?.data?.shops);
-        console.log(shops);
+        
       })
       
       .catch(function (error) {
@@ -31,69 +30,23 @@ const StorePage = () => {
       });
   }, []);
   return (
-    <>
-      <div className={styles.recent}>
-        <div className={styles.text}>Recent Stores</div>
-        <section className={styles.container}>
-          {shops?.map((shop, index) =>
-            index < 6 ? (
-              <Link to={`/shops/${shop?.name}`} className="card">
-                <img className={styles.shopImg} src={shop?.image}  alt="Shop" />
-                <h6>{shop?.name}</h6>
-              </Link>
-            ) : null
-          )}
 
-          {/* <div>
-            <img src={F12} alt="Shop" />
-            <h6> Save Mart</h6>
-          </div>
-          <div>
-            <img src={F12} alt="Shop" />
-            <h6> Walmart</h6>
-          </div>
-          <div>
-            <img src={F12} alt="Shop" />
-            <h6> Walmart</h6>
-          </div> */}
-        </section>
-      </div>
+    <div className={styles.recent}>
+      <div className={styles.text}>Recent Stores</div>
+      <section className={styles.container}>
+        {shops?.map((shop, index) =>
+          index < 6 ? (
+            <Link to={`/shops/${shop?.name}/${shop._id}`} className="card">
+              <img className={styles.shopImg} src={shop?.image}  alt="Shop" />
+              <h6>{shop?.name}</h6>
+            </Link>
+          ) : null
+        )}
 
-      {/*  Best Prices */}
-      <div className={styles.best}>
-        <div>
-          <h4>Best Prices</h4>
-        </div>
-        <div className={styles.prices}>
-          <div className={styles.chroma}>
-            <img src={F16} alt="watch" />
-            <h5>Chroma Watch</h5>
-            <h6>#3,000</h6>
-          </div>
-          
-          {/* glasses */}
-          <div className={styles.sun}>
-            <img src={F6} alt="glasses" />
-            <h5>Sun glasses</h5>
-            <h6>#3,000</h6>
-          </div>
+       
+      </section>
+    </div>
 
-          {/* Tomatoes */}
-          <div className={styles.tomato}>
-            <img src={F8} alt="tomatoes" />
-            <h5>Tomatoes</h5>
-            <h6>#3,000</h6>
-          </div>
-
-          {/* Corn */}
-          <div className={styles.corn}>
-            <img src={F7} alt="corn" />
-            <h5>Corn</h5>
-            <h6>#3,000</h6>
-          </div>
-        </div>
-      </div>
-    </>
   );
 };
 

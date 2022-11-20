@@ -84,13 +84,12 @@ const Login = () => {
               {error}
             </small>
 
-            <div
-              className={styles.in}
-              onClick={(e) => {
-                handleLogin(e);
-              }}
-            >
-              <h2>
+            <div className={styles.in}>
+              <h2
+                onClick={(e) => {
+                  handleLogin(e);
+                }}
+              >
                 <a href="/login">Login</a>
               </h2>
 
