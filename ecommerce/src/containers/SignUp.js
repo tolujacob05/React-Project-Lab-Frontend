@@ -20,7 +20,7 @@ const SignUp = () => {
       phone: phone,
       password: password,
       passwordConfirm: password,
-      role: "shopOwner",
+      role: "user",
     });
 
     var config = {
@@ -35,16 +35,14 @@ const SignUp = () => {
 
     axios(config)
       .then(function (response) {
-        console.log(JSON.stringify(response.data));
-        localStorage.setItem("userToken", response.data.token);
-        const user = response.data.data.user;
-        console.log(user);
-        localStorage.setItem(
-          "userInfo",
-          JSON.stringify(response.data.data.user)
-        );
-
-        navigate(`/`);
+        if (response?.data?.status === "success") {
+          localStorage.setItem("userToken", response.data.token);
+          localStorage.setItem(
+            "userInfo",
+            JSON.stringify(response.data.data.user)
+          );
+          navigate(`/`);
+        }
       })
       .catch(function (error) {
         console.log(error);
@@ -78,7 +76,7 @@ const SignUp = () => {
             <div className={styles.email}>
               <h3>Email</h3>
               <input
-                type="text"
+                type="email"
                 placeholder="Email"
                 className={styles.name}
                 onChange={(e) => {
@@ -108,7 +106,14 @@ const SignUp = () => {
                 }}
               />
             </div>
-
+            <div className={styles.pass}>
+              <h3> Confirm Password</h3>
+              <input
+                type="password"
+                placeholder="Password"
+                className={styles.name}
+              />
+            </div>
             <div
               className={styles.in}
               onClick={(e) => {
