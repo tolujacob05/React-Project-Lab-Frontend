@@ -16,6 +16,8 @@ import Footer from "./Footer";
 import SavedStores from "./SavedStores";
 import Profile from "./Profile";
 import FindNearbyStores from "./FindNearbyStores";
+import ForgotPassword from "./ForgotPassword";
+import ResetPassword from "./ResetPassword";
 
 
 const Main = () => {
@@ -29,7 +31,10 @@ const Main = () => {
           <Route exact path="/" element={<HomePage />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/computerandgadjets" element={<ComputerAndGadjets />} />
-          <Route path="/account" element={loggedIn?<Profile />:<Account />} />
+          <Route
+            path="/account"
+            element={loggedIn ? <Profile /> : <Account />}
+          />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/cart" element={<Cart />} />
@@ -38,6 +43,8 @@ const Main = () => {
           <Route path="/products/:id" element={<ProductPage />} />
           <Route path="/shops/:name/:id" exact element={<Shop />} />
           <Route path="/savedstores" element={<SavedStores />} />
+          <Route path="/forgotpassword" element={<ForgotPassword />} />
+          <Route path="/resetpassword/:id" element={<ResetPassword/>} />
           <Route path="/findnearbystores" element={<FindNearbyStores />} />
         </Routes>
       </div>
