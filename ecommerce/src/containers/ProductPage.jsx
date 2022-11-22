@@ -146,7 +146,7 @@ export default function ProductPage() {
                 addToCart();
               }}
             >
-              add to cart
+              Add to cart
             </button>
             <svg
               onClick={() => {
