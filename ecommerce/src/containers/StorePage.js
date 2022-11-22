@@ -12,14 +12,14 @@ const StorePage = () => {
   useEffect(() => {
     var config = {
       method: "get",
-      url: "http://localhost:3001/api/v1/shops/",
+      url: "https://shopify-nextgen.herokuapp.com/api/v1/shops/",
     };
 
     axios(config)
       .then(function (response) {
         setShops(response?.data?.data?.shops);
       })
-      
+
       .catch(function (error) {
         console.log(error);
       });

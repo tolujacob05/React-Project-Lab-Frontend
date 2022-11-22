@@ -21,8 +21,9 @@ export default function Categories() {
       method: "get",
       url:
         category === ""
-          ? "http://localhost:3001/api/v1/products"
-          : "http://localhost:3001/api/v1/products/categories/" + category,
+          ? "https://shopify-nextgen.herokuapp.com/api/v1/products"
+          : "https://shopify-nextgen.herokuapp.com/api/v1/products/categories/" +
+            category,
       headers: {
         Authorization:
           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNWQ0YzU2MDkwYzY5YmU4ZTMxNDQ1ZCIsImlhdCI6MTY2NzA2MDk5OCwiZXhwIjoxNjY5NjUyOTk4fQ.-zDUVNPDewxxKrV6fauGBr5rONGpeEC3mlSSv61u-ic",

@@ -25,7 +25,7 @@ export default function Shop() {
 
     var config = {
       method: "get",
-      url: "http://localhost:3001/api/v1/products/shop/" + id,
+      url: "https://shopify-nextgen.herokuapp.com/api/v1/products/shop/" + id,
 
       data: data,
     };
@@ -61,7 +61,7 @@ export default function Shop() {
     };
     var config = {
       method: "post",
-      url: "http://localhost:3001/api/v1/carts",
+      url: "https://shopify-nextgen.herokuapp.com/api/v1/carts",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
