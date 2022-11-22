@@ -93,6 +93,9 @@ const Cart = () => {
       <div className={styles.cartPage}>
         <div className={styles.large}>
           <div className={styles.cartItems}>
+            {cartInfo.length < 1 && (
+              <div className={styles.lines}>No item in your cart</div>
+            )}  
             {cartInfo?.map((cartItem) => (
               <div className={styles.line} key={cartItem._id}>
                 <div className={styles.image}>
@@ -141,14 +144,20 @@ const Cart = () => {
                   <h5>Subtotal</h5>
                   <p>
                     ₦
-                    {subtotal?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                    {subtotal
+                      ?.toFixed(2)
+                      .toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   </p>
                 </div>
                 <div className={styles.cost}>
                   <h5>Delivery cost</h5>
                   <p>
                     ₦
-                    {delivery?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                    {delivery
+                      ?.toFixed(2)
+                      .toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   </p>
                 </div>
                 <hr />

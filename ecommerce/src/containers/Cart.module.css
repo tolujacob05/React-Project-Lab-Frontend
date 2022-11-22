@@ -29,6 +29,18 @@ body {
   border-radius: 8px;
   filter: drop-shadow(0px 2px 15px rgba(0, 0, 0, 0.1));
 }
+
+.lines {
+  border: 2px solid #ffffff;
+  background: #ffffff;
+  border-radius: 8px;
+  height: 100px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0px 2px 15px rgba(0, 0, 0, 0.1));
+}
 .image h5 {
   font-size: 1rem;
   font-weight: 300;
