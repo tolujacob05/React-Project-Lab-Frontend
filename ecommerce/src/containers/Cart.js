@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Cart.module.css";
-import F14 from "./Pictures/F14.png";
-import Img from "./Img";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTrashCan,
@@ -10,6 +8,7 @@ import {
 import { FaCcVisa, FaCcMastercard } from "react-icons/fa";
 import PageTitle from "./PageTitle";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const [savedProducts, setSavedProducts] = useState([]);
@@ -189,7 +188,11 @@ const Cart = () => {
         </div>
 
         <div className={styles.tank}>
-          <div className={styles.things}>Saved Items</div>
+          <div className={styles.things}>
+            <Link to="/saved" className={styles.palm}>
+              <h5>Saved Items</h5>
+            </Link>
+          </div>
           <div className={styles.saved}>
             {savedProducts.length > 0 ? (
               savedProducts?.map((savedProduct) => (

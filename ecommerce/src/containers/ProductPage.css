@@ -87,3 +87,20 @@ button:hover{
   width: 20px !important;
   height: 20px !important;
 }
+@media screen and (max-width: 1000px){
+  .imgViewer > img {
+    width: 170px;
+  }
+}
+@media screen and (max-width: 400px){
+  .imgViewer > img {
+    width: 70px;
+  }
+  .productDetails .productName{
+    font-size: 1rem;
+    font-weight: 600;
+}
+.productContainer {
+  display: grid;
+}
+}

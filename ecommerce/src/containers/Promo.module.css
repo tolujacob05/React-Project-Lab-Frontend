@@ -3,13 +3,13 @@
     justify-content: center;
     align-items: center;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(./Pictures/F1.png);
-background-blend-mode: darken, normal;
-background-repeat: no-repeat;
-background-size: cover;
-border-radius: 12px;
-letter-spacing: 0.015em;
-height: 300px;
-margin: 20px;
+    background-blend-mode: darken, normal;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 12px;
+    letter-spacing: 0.015em;
+    height: 300px;
+    margin: 20px;
 }
 .F1 img{
     filter: blur(3px);
@@ -23,6 +23,7 @@ margin: 20px;
     justify-content: center;
     position: absolute;
 }
+
 .made h1 {
     font-family: 'Rubik Wet Paint', cursive;
     text-align: center;
@@ -32,8 +33,6 @@ margin: 20px;
 }
 .made h2 {
     font-family: 'Rubik Wet Paint' ;
-    
-    
 }
 .shop h1 {
     color: aliceblue;
@@ -45,8 +44,8 @@ margin: 20px;
 }
 .buttons {
     display: flex;
-    justify-content: center;
-    column-gap: 30px;
+    justify-content: space-evenly;
+    column-gap: 10rem;
 }
 .buttons h3 {
     display: flex;
@@ -66,7 +65,7 @@ margin: 20px;
 .savedStore h3 {
     width: 130px;
 }
-@media  screen and (max-width: 1000px) {
+@media screen and (max-width: 1000px) {
     .shop h1 {
         color: rgb(119, 180, 119);
         font-size: 2rem;
@@ -75,5 +74,4 @@ margin: 20px;
         color: rgb(119, 180, 119);
         font-size: 2rem;
     }
-    
 }

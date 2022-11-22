@@ -148,7 +148,7 @@ const addToSavedProducts = (id)=>{
                 addToCart();
               }}
             >
-              add to cart
+              Add to cart
             </button>
             <svg
               onClick={() => {

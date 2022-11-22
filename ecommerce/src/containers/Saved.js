@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import "./Saved.css";
-import F20 from "./Pictures/F20.png";
 import axios from "axios";
 import PageTitle from "./PageTitle";
 
@@ -30,6 +29,7 @@ const Saved = () => {
         console.log(error);
       });
   }, []);
+
   return (
     <div>
       <PageTitle title={"Saved Item"} />
@@ -45,7 +45,7 @@ const Saved = () => {
               </p>
             </div>
             <div className="actions">
-              <button style={{ padding: "5px 20px" }}>add to Cart</button>
+              <button style={{ padding: "5px 20px" }}>Add to Cart</button>
               <div
                 className="deletebutton"
                 style={{
