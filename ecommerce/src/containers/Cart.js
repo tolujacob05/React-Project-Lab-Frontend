@@ -15,11 +15,11 @@ const Cart = () => {
   const [savedProducts, setSavedProducts] = useState([]);
   const [cartInfo, setCartInfo] = useState([]);
   const [subtotal, setSubTotal] = useState(0);
-  const [delivery, setDelivery ] = useState(0)
+  const [delivery, setDelivery] = useState(0);
   const getCartItems = () => {
     var config = {
       method: "get",
-      url: "http://localhost:3001/api/v1/carts/",
+      url: "https://shopify-nextgen.herokuapp.com/api/v1/carts/",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
@@ -31,13 +31,12 @@ const Cart = () => {
         setCartInfo(response?.data?.data);
         const getSubTotal = response?.data?.data?.reduce(
           (accumulator, currentValue) => {
-           
             return accumulator + currentValue.amount;
           },
           0
         );
- console.log(getSubTotal);
-        setSubTotal(getSubTotal)
+        console.log(getSubTotal);
+        setSubTotal(getSubTotal);
         setDelivery(getSubTotal * 0.02);
       })
       .catch(function (error) {
@@ -47,7 +46,7 @@ const Cart = () => {
   const handleDeleteCartItem = (id) => {
     var config = {
       method: "delete",
-      url: "http://localhost:3001/api/v1/carts/" + id,
+      url: "https://shopify-nextgen.herokuapp.com/api/v1/carts/" + id,
       headers: {
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
@@ -67,7 +66,7 @@ const Cart = () => {
 
     var config = {
       method: "get",
-      url: "http://localhost:3001/api/v1/savedproducts/",
+      url: "https://shopify-nextgen.herokuapp.com/api/v1/savedproducts/",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
@@ -95,7 +94,7 @@ const Cart = () => {
           <div className={styles.cartItems}>
             {cartInfo.length < 1 && (
               <div className={styles.lines}>No item in your cart</div>
-            )}  
+            )}
             {cartInfo?.map((cartItem) => (
               <div className={styles.line} key={cartItem._id}>
                 <div className={styles.image}>

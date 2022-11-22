@@ -21,7 +21,7 @@ const Login = () => {
 
     var config = {
       method: "post",
-      url: "http://localhost:3001/api/v1/users/signIn",
+      url: "https://shopify-nextgen.herokuapp.com/api/v1/users/signIn",
       data: data,
     };
     console.log(data);
@@ -79,7 +79,13 @@ const Login = () => {
                   setPassword(e.target.value);
                 }}
               />
-              <div style={{ display: "flex", justifyContent: "space-between", width:"80%" }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  width: "80%",
+                }}
+              >
                 <small className="error" style={{ color: "#d30202" }}>
                   {error}
                 </small>

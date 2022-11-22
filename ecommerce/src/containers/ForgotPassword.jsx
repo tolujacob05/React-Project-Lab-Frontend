@@ -5,7 +5,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function ForgotPassword() {
-    
   let navigate = useNavigate();
   const handleForgotPassword = async () => {
     if (email === "") {
@@ -18,7 +17,7 @@ function ForgotPassword() {
 
     var config = {
       method: "post",
-      url: "http://localhost:3001/api/v1/users/forgot-password/",
+      url: "https://shopify-nextgen.herokuapp.com/api/v1/users/forgot-password/",
       headers: {
         "Content-Type": "application/json",
       },
@@ -30,10 +29,10 @@ function ForgotPassword() {
         console.log(JSON.stringify(response.data));
         let resetUrl = await response.data.resetUrl;
         let resetUrlArray = resetUrl.split("/");
-        console.log(resetUrlArray)
+        console.log(resetUrlArray);
         let id = await resetUrlArray[resetUrlArray.length - 1];
-        console.log(id)
-        navigate("/resetpassword/"+id);
+        console.log(id);
+        navigate("/resetpassword/" + id);
       })
       .catch(function (error) {
         setError(error?.message);
