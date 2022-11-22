@@ -3,25 +3,19 @@ import styles from "./Profile.module.css";
 import { FaEnvelope, FaPen, FaSquareFull } from "react-icons/fa";
 import Popup from "./Popup";
 import Popup2 from "./Popup2";
-import Modal from '@material-ui/core/Modal';
+import Modal from "./Modal"
 import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
-  /*const [isOpen, setIsOpen] = useState(false);
-  const togglePopup = () => {
-    setIsOpen(!isOpen);
-  };
-  const [open, setItsOpen] = useState(false);
-  const togglePop = () => {
-    setItsOpen(!open);
-  }*/
-  const [open, setOpen] = React.useState(false);
-  const handleClose = () => {
-    setOpen(false);
-  };
-  const handleOpen = () => {
-    setOpen(true);
-  };
+  const [isOpen, setIsOpen] = useState(false);
+    const togglePopup = () => {
+      setIsOpen(true);
+    };
+    const [open, setItsOpen] = useState(false);
+    const togglePop = () => {
+      setItsOpen(true);
+    }
+  
   let navigate = useNavigate();
   const handleLogout = () => {
     localStorage.clear();
@@ -45,7 +39,7 @@ const Profile = () => {
                     userInfo?.email
                   }
                 </p>
-                <div className={styles.change} onClick={handleOpen}>
+                <div className={styles.change} onClick={togglePop}>
                   <p>change</p>
                   <p>
                     <FaPen />
@@ -60,11 +54,11 @@ const Profile = () => {
                             <h5>New Email</h5>
                             <div className={styles.up}>
                               <form>
-                                <input type="email" placeholder="email" />
+                                <input type="email" placeholder="Email" />
                               </form>
                               <h4>Update</h4>
                             </div>
-                          </div>   
+                          </div>
                         </>
                       }
                     />
@@ -79,12 +73,12 @@ const Profile = () => {
                     userInfo?.phoneNumber
                   }
                 </p>
-                <div className={styles.change2} onClick={handleOpen}>
+                <div className={styles.change2} onClick={togglePopup}>
                   <p>change</p>
                   <p>
                     <FaPen />
                   </p>
-                  {open && (
+                  {isOpen && (
                     <Popup
                       content={
                         <>

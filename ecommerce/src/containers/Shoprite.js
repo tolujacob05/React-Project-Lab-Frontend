@@ -4,7 +4,7 @@ import styles from "./Shoprite.module.css"
 const Shoprite = () => {
     return (
         <>
-            <div className={styles.large}>
+           {/* <div className={styles.large}>
                 <h1>Shoprite</h1>
             </div>    
             <div className={styles.first}>
@@ -17,16 +17,16 @@ const Shoprite = () => {
                 </div>
 
                 {/*layout grid of categorized products*/}
-                <div>
+             {/*   <div>
                     <div>
                         <a href="computerandgadjets"><h2>Computer And Gadjets</h2></a>
                         <a href="categories"><h2>Categories</h2></a>
                     </div>
                 </div>
-            </div>
+            </div>  */}
             
-        </>
-    )
+    </> 
+    );
 }
 
 export default Shoprite;
