@@ -21,7 +21,7 @@ const Login = () => {
 
     var config = {
       method: "post",
-      url: "https://shopify-nextgen.herokuapp.com/api/v1/users/signIn",
+      url: "http://localhost:3001/api/v1/users/signIn",
       data: data,
     };
     console.log(data);

@@ -24,7 +24,7 @@ export default function ProductPage() {
 
     var config = {
       method: "get",
-      url: "https://shopify-nextgen.herokuapp.com/api/v1/products/" + id,
+      url: "http://localhost:3001/api/v1/products/" + id,
       data: data,
     };
 
@@ -56,9 +56,9 @@ export default function ProductPage() {
     };
     var config = {
       method: "post",
-      url: "https://shopify-nextgen.herokuapp.com/api/v1/carts",
+      url: "http://localhost:3001/api/v1/carts",
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("userToken"),
+        Authorization: `Bearer ${localStorage.getItem("userToken")}`,
       },
       data: data,
     };
@@ -77,13 +77,14 @@ export default function ProductPage() {
 
     var config = {
       method: "post",
-      url: "https://shopify-nextgen.herokuapp.com/api/v1/savedproducts/" + id,
+      url: "http://localhost:3000/api/v1/savedproducts/" + id,
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("userToken"),
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzN2NkMTljOTE3NzczOWVjMzc4NDczNCIsImlhdCI6MTY2OTEyNDUwOCwiZXhwIjoxNjY5MTI0NTA4fQ.1tOBZYbMvY4EOnWVTXHfw2OUKbRbEsnh_zqAtbsNqxc",
       },
       data: data,
     };
-
+    console.log("Bearer " + localStorage.getItem("userToken"));
     axios(config)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
@@ -125,7 +126,6 @@ export default function ProductPage() {
           </div>
           <div className="priceContainer">
             <h3>₦{price}</h3>
-            <button>compare price</button>
           </div>
           <div className="counter">
             <CounterInput
@@ -146,7 +146,7 @@ export default function ProductPage() {
                 addToCart();
               }}
             >
-              add to cart
+              Add to cart
             </button>
             <svg
               onClick={() => {

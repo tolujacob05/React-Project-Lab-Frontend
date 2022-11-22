@@ -6,6 +6,9 @@ import F11 from "./Pictures/F11.png"
 const FindNearbyStores = () => {
     return (
         <>
+            <div className={styles.iframe}>
+                <iframe className="my-map" title="my map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8070160.228169138!2d4.175377834274036!3d9.017343700931084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0baf7da48d0d%3A0x99a8fe4168c50bc8!2sNigeria!5e0!3m2!1sen!2sng!4v1668873408813!5m2!1sen!2sng"></iframe>
+            </div>
            <div className={styles.shoprite}>
                 <img src={F9} alt="shoprite" />
                 <h5>Novra mall Sangotedo</h5>

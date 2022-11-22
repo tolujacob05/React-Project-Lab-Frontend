@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Cart.module.css";
-import F14 from "./Pictures/F14.png";
-import Img from "./Img";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTrashCan,
@@ -10,6 +8,7 @@ import {
 import { FaCcVisa, FaCcMastercard } from "react-icons/fa";
 import PageTitle from "./PageTitle";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const [savedProducts, setSavedProducts] = useState([]);
@@ -19,7 +18,7 @@ const Cart = () => {
   const getCartItems = () => {
     var config = {
       method: "get",
-      url: "https://shopify-nextgen.herokuapp.com/api/v1/carts/",
+      url: "http://localhost:3001/api/v1/carts/",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
@@ -46,7 +45,7 @@ const Cart = () => {
   const handleDeleteCartItem = (id) => {
     var config = {
       method: "delete",
-      url: "https://shopify-nextgen.herokuapp.com/api/v1/carts/" + id,
+      url: "http://localhost:3001/api/v1/carts/" + id,
       headers: {
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
@@ -66,7 +65,7 @@ const Cart = () => {
 
     var config = {
       method: "get",
-      url: "https://shopify-nextgen.herokuapp.com/api/v1/savedproducts/",
+      url: "http://localhost:3001/api/v1/savedproducts/",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
@@ -100,11 +99,11 @@ const Cart = () => {
                 <div className={styles.image}>
                   <img
                     width={100}
-                    src={cartItem?.productId?.images[0]}
+                    src={cartItem.productId.images[0]}
                     alt="Shoes"
                   />
                   <div>
-                    <h4>{cartItem?.productId?.name}</h4>
+                    <h4></h4>
                     <br />
                     <h5>
                       {cartItem?.productId?.description.length > 100
@@ -115,7 +114,7 @@ const Cart = () => {
                   </div>
                   <h4>
                     ₦
-                    {cartItem?.productId?.price
+                    {cartItem?.amount
                       ?.toString()
                       .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   </h4>
@@ -188,7 +187,11 @@ const Cart = () => {
         </div>
 
         <div className={styles.tank}>
-          <div className={styles.things}>Saved Items</div>
+          <div className={styles.things}>
+            <Link to="/saved" className={styles.palm}>
+              <h5>Saved Items</h5>
+            </Link>
+          </div>
           <div className={styles.saved}>
             {savedProducts.length > 0 ? (
               savedProducts?.map((savedProduct) => (

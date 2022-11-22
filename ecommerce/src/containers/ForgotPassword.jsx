@@ -17,7 +17,7 @@ function ForgotPassword() {
 
     var config = {
       method: "post",
-      url: "https://shopify-nextgen.herokuapp.com/api/v1/users/forgot-password/",
+      url: "http://localhost:3001/api/v1/users/forgot-password/",
       headers: {
         "Content-Type": "application/json",
       },

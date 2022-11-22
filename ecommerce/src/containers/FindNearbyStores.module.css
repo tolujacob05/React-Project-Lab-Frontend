@@ -1,3 +1,11 @@
+.iframe {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+iframe {
+    width: 80vw;
+}
 .shoprite {
     display: flex;
     justify-content: space-evenly;

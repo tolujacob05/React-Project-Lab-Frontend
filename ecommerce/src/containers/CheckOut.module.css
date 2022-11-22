@@ -1,7 +1,7 @@
 .for {
-    border: 2px solid aliceblue;
-    height: 90vh;
-    background: aliceblue;
+    border: 2px solid rgb(193, 193, 193);
+    padding: 20px 0px;
+    background: #F5F5F5;
     display: flex;
     justify-content: space-evenly; 
 }
@@ -163,4 +163,35 @@
 .condition {
     padding: 1rem;
     margin-left: 1rem;
+}
+@media screen and (max-width: 400px) {
+    .for {
+        display: flex;
+        flex-direction: column;
+    }
+    .bigContainer {
+        height: 30vh;
+        display: grid;
+        justify-content: center;
+    }
+    .delivery {
+        height: vh;
+    }
+    .form, h3 {
+        font-size: 0.8rem;
+        font-family: sans-serif;
+        margin-top: 1rem;
+    }
+    .place h3 {
+        
+        font-size: 0.8rem;
+        font-family: sans-serif;
+        font-weight: 300;
+    }
+}
+@media screen and (max-width: 1000px){
+    .for {
+       display: flex;
+
+    }
 }
