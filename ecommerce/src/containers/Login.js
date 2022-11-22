@@ -3,7 +3,7 @@ import F10 from "./Pictures/F10.png";
 import styles from "./Login.module.css";
 import { FaFacebook, FaGoogle, FaTwitter } from "react-icons/fa";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -79,11 +79,17 @@ const Login = () => {
                   setPassword(e.target.value);
                 }}
               />
+              <div style={{ display: "flex", justifyContent: "space-between", width:"80%" }}>
+                <small className="error" style={{ color: "#d30202" }}>
+                  {error}
+                </small>
+                <Link to={"/forgotpassword"}>
+                  <small className="error" style={{ color: "#000" }}>
+                    Forget password?
+                  </small>
+                </Link>
+              </div>
             </div>
-            <small className="error" style={{ color: "#d30202" }}>
-              {error}
-            </small>
-
             <div className={styles.in}>
               <h2
                 onClick={(e) => {

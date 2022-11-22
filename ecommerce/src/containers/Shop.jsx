@@ -230,51 +230,56 @@ export default function Shop() {
           </div>
         </div>
         <div className="categoryProducts">
-          {products?.map((product) => {
-            if (products.length < 1) {
-              return <div>No product in this category yet</div>;
-            }
-            return (
-              <Link
-                to={`/products/${product?._id}`}
-                key={product?._id}
-                className="productCard"
-              >
-                <div
-                  className="productImg"
-                  style={{
-                    backgroundImage: `url(${product?.images[0]})`,
-                  }}
-                ></div>
-                <p className="productName">
-                  {product?.name?.length > 25
-                    ? product?.name?.substring(0, 30) + "..."
-                    : product?.name}
-                </p>
-                <p className="price">
-                  ₦
-                  {product?.price
-                    ?.toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                </p>
-
-                <Rating
-                  disableFillHover={true}
-                  readonly={true}
-                  allowFraction={true}
-                  initialValue={product?.averageReview}
-                />
-                <button
-                  className="addToCartButton"
-                  onClick={() => {
-                    addToCart();
-                  }}
+          {products.length > 0 ? (
+            products?.map((product) => {
+              return (
+                <Link
+                  to={`/products/${product?._id}`}
+                  key={product?._id}
+                  className="productCard"
                 >
-                  Add To Cart
-                </button>
-              </Link>
-            );
-          })}
+                  <div
+                    className="productImg"
+                    style={{
+                      backgroundImage: `url(${product?.images[0]})`,
+                    }}
+                  ></div>
+                  <p className="productName">
+                    {product?.name?.length > 25
+                      ? product?.name?.substring(0, 30) + "..."
+                      : product?.name}
+                  </p>
+                  <p className="price">
+                    ₦
+                    {product?.price
+                      ?.toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  </p>
+
+                  <Rating
+                    disableFillHover={true}
+                    readonly={true}
+                    allowFraction={true}
+                    initialValue={product?.averageReview}
+                  />
+                  <button
+                    className="addToCartButton"
+                    onClick={() => {
+                      addToCart();
+                    }}
+                  >
+                    Add To Cart
+                  </button>
+                </Link>
+              );
+            })
+          ) : (
+            <h2 style={{ textAlign: "center", margin: "auto" }}>
+              oops!! <br />
+              <br />
+              No product in this category
+            </h2>
+          )}
         </div>
       </div>
       <div></div>
