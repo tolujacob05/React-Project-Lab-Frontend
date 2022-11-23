@@ -3,19 +3,25 @@ import styles from "./Profile.module.css";
 import { FaEnvelope, FaPen, FaSquareFull } from "react-icons/fa";
 import Popup from "./Popup";
 import Popup2 from "./Popup2";
-import Modal from "./Modal"
+import Modal from '@material-ui/core/Modal';
 import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
-  const [isOpen, setIsOpen] = useState(false);
-    const togglePopup = () => {
-      setIsOpen(true);
-    };
-    const [open, setItsOpen] = useState(false);
-    const togglePop = () => {
-      setItsOpen(true);
-    }
-  
+  /*const [isOpen, setIsOpen] = useState(false);
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  };
+  const [open, setItsOpen] = useState(false);
+  const togglePop = () => {
+    setItsOpen(!open);
+  }*/
+  const [open, setOpen] = React.useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleOpen = () => {
+    setOpen(true);
+  };
   let navigate = useNavigate();
   const handleLogout = () => {
     localStorage.clear();
@@ -39,7 +45,7 @@ const Profile = () => {
                     userInfo?.email
                   }
                 </p>
-                <div className={styles.change} onClick={togglePop}>
+                <div className={styles.change} onClick={handleOpen}>
                   <p>change</p>
                   <p>
                     <FaPen />
@@ -58,7 +64,7 @@ const Profile = () => {
                               </form>
                               <h4>Update</h4>
                             </div>
-                          </div>
+                          </div>   
                         </>
                       }
                     />
@@ -73,12 +79,12 @@ const Profile = () => {
                     userInfo?.phoneNumber
                   }
                 </p>
-                <div className={styles.change2} onClick={togglePopup}>
+                <div className={styles.change2} onClick={handleOpen}>
                   <p>change</p>
                   <p>
                     <FaPen />
                   </p>
-                  {isOpen && (
+                  {open && (
                     <Popup
                       content={
                         <>

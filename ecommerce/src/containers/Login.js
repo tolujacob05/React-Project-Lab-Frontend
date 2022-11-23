@@ -79,7 +79,13 @@ const Login = () => {
                   setPassword(e.target.value);
                 }}
               />
-              <div style={{ display: "flex", justifyContent: "space-between", width:"80%" }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  width: "80%",
+                }}
+              >
                 <small className="error" style={{ color: "#d30202" }}>
                   {error}
                 </small>

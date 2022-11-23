@@ -219,101 +219,89 @@ h5 {
   display: flex;
   justify-content: center;
 }
-@media screen and (max-width: 400px) {
-  body {
-    background: red;
-  }
-  .large {
-    display: flex;
-    flex-direction: column;
-  }
-  .image {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    padding: 1rem;
-  }
-  .image h4 {
-    font-size: 0.7rem;
-  }
-  .checkButton {
-    width: 30vw;
-    height: 10vw;
-  }
-  .checkButton a {
-    font-size: 0.7rem;
-    color: black;
-  }
-  .cartItems {
-    width: 20vw;
-  }
-  .saved img {
-    width: 10vw;
-  }
-  .saved p {
-    font-size: 0.7rem;
-    color: black;
-  }
-  /*.tie {
-      display: flex;
-      align-items: flex-start;
-  }*/
-/*.tie h4 {
-      font-size: 0.7rem;
-  }
-  .pIcon {
-      font-size: 1rem;
-  }*/
+@media (max-width: 400px) {
+    body {
+        background: red;
+    }
+    .large {
+        display: flex;
+        flex-direction: column;
+    }
+    .image {
+        display: flex;
+        gap: 3rem;
+        padding: 1rem;
+    }
+    .image h4 {
+        font-size: 0.7rem;
+    }
+    .checkButton {
+        width: 30vw;
+        height: 10vw;
+    }
+    .checkButton a {
+        font-size: 0.7rem;
+        color: black;
+    }
+    /*.tie {
+        display: flex;
+        align-items: flex-start;
+    }*/
+  /*.tie h4 {
+        font-size: 0.7rem;
+    }
+    .pIcon {
+        font-size: 1rem;
+    }*/
 }
 
 @media screen and (max-width: 1000px) {
-  .large {
-    display: flex;
-    flex-direction: column;
-  }
-  .line {
-    width: 94vw;
-  }
-  .image {
-    display: flex;
-    justify-content: space-evenly;
-    gap: 5rem;
-    padding: 1rem;
-  } 
-  .grid {
-    display: grid;
-    justify-content: flex-end;
-  }
-  .word {
-    width: 50vw;
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    margin-top: 2rem;
-  }
-  .checkButton {
-    width: 20vw;
-  }
-  .tie {
-    display: grid;
-    align-items: center;
-    justify-content: center;
-  }
-  .saved img {
-    width: 10vw;
-  }
+    .large {
+        display: flex;
+        flex-direction: column;
+    }
+    .line {
+        width: 94vw;
+    }
+    .image {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 5rem;
+        padding: 1rem;
+    } 
+    .grid {
+        display: grid;
+        justify-content: flex-end;
+    }
+    .word {
+        width: 50vw;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        margin-right: 8rem;
+        margin-top: 2rem;
+    }
+    .checkButton {
+        width: 20vw;
+    }
+    .tie {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        margin-right: 7rem;
+    }
 }
 @media  screen and (max-width: 400px) {
-  .word {
-    width: 58vw;
-  }
-  .checkButton {
-    width: 30vw;
-  }
-  .tie {
-    display: grid;
-    align-items: center;
-    justify-content: center;
-  }
+    .word {
+        width: 70vw;
+    }
+    .checkButton {
+        width: 30vw;
+    }
+    .tie {
+        display: grid;
+        align-items: center;
+        justify-content: flex-end;
+    }
 }
 

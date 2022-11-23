@@ -14,7 +14,7 @@ const Cart = () => {
   const [savedProducts, setSavedProducts] = useState([]);
   const [cartInfo, setCartInfo] = useState([]);
   const [subtotal, setSubTotal] = useState(0);
-  const [delivery, setDelivery ] = useState(0)
+  const [delivery, setDelivery] = useState(0);
   const getCartItems = () => {
     var config = {
       method: "get",
@@ -30,13 +30,12 @@ const Cart = () => {
         setCartInfo(response?.data?.data);
         const getSubTotal = response?.data?.data?.reduce(
           (accumulator, currentValue) => {
-           
             return accumulator + currentValue.amount;
           },
           0
         );
- console.log(getSubTotal);
-        setSubTotal(getSubTotal)
+        console.log(getSubTotal);
+        setSubTotal(getSubTotal);
         setDelivery(getSubTotal * 0.02);
       })
       .catch(function (error) {
@@ -94,17 +93,17 @@ const Cart = () => {
           <div className={styles.cartItems}>
             {cartInfo.length < 1 && (
               <div className={styles.lines}>No item in your cart</div>
-            )}  
+            )}
             {cartInfo?.map((cartItem) => (
               <div className={styles.line} key={cartItem._id}>
                 <div className={styles.image}>
                   <img
                     width={100}
-                    src={cartItem?.productId?.images[0]}
+                    src={cartItem.productId.images[0]}
                     alt="Shoes"
                   />
                   <div>
-                    <h4>{cartItem?.productId?.name}</h4>
+                    <h4></h4>
                     <br />
                     <h5>
                       {cartItem?.productId?.description.length > 100
@@ -115,7 +114,7 @@ const Cart = () => {
                   </div>
                   <h4>
                     ₦
-                    {cartItem?.productId?.price
+                    {cartItem?.amount
                       ?.toString()
                       .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   </h4>

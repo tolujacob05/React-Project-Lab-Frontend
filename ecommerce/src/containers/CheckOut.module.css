@@ -1,6 +1,6 @@
 .for {
     border: 2px solid rgb(193, 193, 193);
-    height: 90vh;
+    padding: 20px 0px;
     background: #F5F5F5;
     display: flex;
     justify-content: space-evenly; 
@@ -165,9 +165,6 @@
     margin-left: 1rem;
 }
 @media screen and (max-width: 400px) {
-    body {
-        height: 200vh;
-    }
     .for {
         display: flex;
         flex-direction: column;
@@ -189,7 +186,6 @@
         font-size: 0.8rem;
         font-family: sans-serif;
         font-weight: 300;
-        margin-bottom: 2rem;
     }
 }
 @media screen and (max-width: 1000px){

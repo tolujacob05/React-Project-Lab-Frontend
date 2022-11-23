@@ -12,8 +12,8 @@ export default function ProductPage() {
   const [product, setProduct] = useState(null);
   const [price, setPrice] = useState("");
   const [rating, setRating] = useState(null);
-  const [saved, setSaved] = useState(false)
-  const [quantity, setQuantity] = useState(1)
+  const [saved, setSaved] = useState(false);
+  const [quantity, setQuantity] = useState(1);
   let navigate = useNavigate();
   useEffect(() => {
     getProduct();
@@ -45,10 +45,10 @@ export default function ProductPage() {
         console.log(error);
       });
   };
- 
+
   const [productImages, setproductImages] = useState([]);
   const [imageView, setImageView] = useState([]);
-  
+
   const addToCart = () => {
     var data = {
       productId: id,
@@ -58,7 +58,7 @@ export default function ProductPage() {
       method: "post",
       url: "http://localhost:3001/api/v1/carts",
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("userToken"),
+        Authorization: `Bearer ${localStorage.getItem("userToken")}`,
       },
       data: data,
     };
@@ -66,34 +66,33 @@ export default function ProductPage() {
     axios(config)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
-        navigate("/cart")
+        navigate("/cart");
       })
       .catch(function (error) {
         console.log(error);
       });
   };
-const addToSavedProducts = (id)=>{
-  var data = "";
+  const addToSavedProducts = (id) => {
+    var data = "";
 
-  var config = {
-    method: "post",
-    url: "http://localhost:3001/api/v1/savedproducts/"+id,
-    headers: {
-      Authorization:
-        "Bearer "+localStorage.getItem("userToken"),
-    },
-    data: data,
+    var config = {
+      method: "post",
+      url: "http://localhost:3000/api/v1/savedproducts/" + id,
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzN2NkMTljOTE3NzczOWVjMzc4NDczNCIsImlhdCI6MTY2OTEyNDUwOCwiZXhwIjoxNjY5MTI0NTA4fQ.1tOBZYbMvY4EOnWVTXHfw2OUKbRbEsnh_zqAtbsNqxc",
+      },
+      data: data,
+    };
+    console.log("Bearer " + localStorage.getItem("userToken"));
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
-
-  axios(config)
-    .then(function (response) {
-      console.log(JSON.stringify(response.data));
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-
-}
   return (
     <>
       <PageTitle title={"product Details"} />
@@ -127,7 +126,6 @@ const addToSavedProducts = (id)=>{
           </div>
           <div className="priceContainer">
             <h3>₦{price}</h3>
-            <button>compare price</button>
           </div>
           <div className="counter">
             <CounterInput

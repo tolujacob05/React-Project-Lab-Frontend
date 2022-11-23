@@ -19,7 +19,7 @@ const StorePage = () => {
       .then(function (response) {
         setShops(response?.data?.data?.shops);
       })
-      
+
       .catch(function (error) {
         console.log(error);
       });
