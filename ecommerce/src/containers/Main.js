@@ -37,14 +37,17 @@ const Main = () => {
           />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<CheckOut />} />
+          <Route path="/cart" element={loggedIn ? <Cart /> : <Account />} />
+          <Route
+            path="/checkout"
+            element={loggedIn ? <CheckOut /> : <Account />}
+          />
           <Route path="/saved" element={<Saved />} />
           <Route path="/products/:id" element={<ProductPage />} />
           <Route path="/shops/:name/:id" exact element={<Shop />} />
           <Route path="/savedstores" element={<SavedStores />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
-          <Route path="/resetpassword/:id" element={<ResetPassword/>} />
+          <Route path="/resetpassword/:id" element={<ResetPassword />} />
           <Route path="/findnearbystores" element={<FindNearbyStores />} />
         </Routes>
       </div>

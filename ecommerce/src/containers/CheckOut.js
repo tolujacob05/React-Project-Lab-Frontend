@@ -1,8 +1,74 @@
 import React from "react";
 import styles from "./CheckOut.module.css";
 import { FaCcMastercard } from "react-icons/fa";
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
 
 const CheckOut = () => {
+  const [cartInfo, setCartInfo] = useState([]);
+  const [subtotal, setSubTotal] = useState(0);
+  const [delivery, setDelivery] = useState(0);
+
+  const handleCheckout = () => {
+    var data = {
+      card_number: "5531886652142950",
+      expiry_month: "09",
+      expiry_year: "32",
+      cvv: "564",
+    };
+
+    var config = {
+      method: "post",
+      url: "http://localhost:3001/api/v1/orders/checkout",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("userToken"),
+      },
+      data: data,
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        alert("order complete");
+        getCartItems()
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  const getCartItems = () => {
+    var config = {
+      method: "get",
+      url: "http://localhost:3001/api/v1/carts/",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("userToken"),
+      },
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        setCartInfo(response?.data?.data);
+        const getSubTotal = response?.data?.data?.reduce(
+          (accumulator, currentValue) => {
+            return accumulator + currentValue.amount;
+          },
+          0
+        );
+        console.log(getSubTotal);
+        setSubTotal(getSubTotal);
+        setDelivery(getSubTotal * 0.02);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    getCartItems();
+  }, []);
   return (
     <>
       <div></div>
@@ -50,23 +116,52 @@ const CheckOut = () => {
         <div className={styles.method}>
           <div className={styles.delivery}>
             <h4>Summary</h4>
-            <div className={styles.total}>
-              <div className={styles.sub}>
-                <h5>Subtotal</h5>
-                <p> #5,500</p>
-              </div>
-              <div className={styles.cost}>
-                <h5>Delivery cost</h5>
-                <p>#1,500</p>
-              </div>
-              <div className={styles.able}>
-                <h5>Total payable</h5>
-                <p>#7,000</p>
+            <div className={styles.grid}>
+              <div className={styles.word}>
+                <div className={styles.total}>
+                  <div className={styles.sub}>
+                    <h5>Subtotal</h5>
+                    <p>
+                      ₦
+                      {subtotal
+                        ?.toFixed(2)
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                    </p>
+                  </div>
+                  <div className={styles.cost}>
+                    <h5>Delivery cost</h5>
+                    <p>
+                      ₦
+                      {delivery
+                        ?.toFixed(2)
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                    </p>
+                  </div>
+                  <hr />
+                  <div className={styles.able}>
+                    <h5>Total payable</h5>
+                    <p>
+                      ₦
+                      {(subtotal + delivery)
+                        .toFixed(2)
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                    </p>
+                  </div>
+                  <hr />
+                  <div className={styles.checkButton}>
+                    <a href="checkout">Check Out</a>
+                  </div>
+                </div>
               </div>
             </div>
             <div className={styles.pay}>
-              <h4> Pay Now </h4>
-              <h4> Pay in Store </h4>
+              <h4 style={{ cursor: "pointer" }} onClick={handleCheckout}>
+                Pay Now
+              </h4>
+              <h4 style={{ cursor: "pointer" }}> Pay in Store </h4>
             </div>
           </div>
           <div className={styles.condition}>

@@ -18,7 +18,7 @@ const Cart = () => {
   const getCartItems = () => {
     var config = {
       method: "get",
-      url: "https://shopify-nextgen.herokuapp.com/api/v1/carts/",
+      url: "http://localhost:3001/api/v1/carts/",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
@@ -45,7 +45,7 @@ const Cart = () => {
   const handleDeleteCartItem = (id) => {
     var config = {
       method: "delete",
-      url: "https://shopify-nextgen.herokuapp.com/api/v1/carts/" + id,
+      url: "http://localhost:3001/api/v1/carts/" + id,
       headers: {
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
@@ -65,7 +65,7 @@ const Cart = () => {
 
     var config = {
       method: "get",
-      url: "https://shopify-nextgen.herokuapp.com/api/v1/savedproducts/",
+      url: "http://localhost:3001/api/v1/savedproducts/",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
@@ -99,11 +99,11 @@ const Cart = () => {
                 <div className={styles.image}>
                   <img
                     width={100}
-                    src={cartItem?.productId?.images[0]}
+                    src={cartItem.productId.images[0]}
                     alt="Shoes"
                   />
                   <div>
-                    <h4>{cartItem?.productId?.name}</h4>
+                    <h4></h4>
                     <br />
                     <h5>
                       {cartItem?.productId?.description.length > 100
@@ -114,7 +114,7 @@ const Cart = () => {
                   </div>
                   <h4>
                     ₦
-                    {cartItem?.productId?.price
+                    {cartItem?.amount
                       ?.toString()
                       .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   </h4>
