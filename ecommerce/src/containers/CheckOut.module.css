@@ -1,3 +1,4 @@
+
 .for {
     border: 2px solid rgb(193, 193, 193);
     padding: 20px 0px;
@@ -165,14 +166,18 @@
     margin-left: 1rem;
 }
 @media screen and (max-width: 400px) {
-    .for {
+    body {
+        height: 200vh;
+    }
+    /*.for {
         display: flex;
         flex-direction: column;
-    }
+    }*/
     .bigContainer {
         height: 30vh;
         display: grid;
         justify-content: center;
+        padding: 1rem;
     }
     .delivery {
         height: vh;
@@ -182,10 +187,20 @@
         font-family: sans-serif;
         margin-top: 1rem;
     }
+    .place {
+        padding: 1rem;
+        height: 10vh;
+    }
     .place h3 {
         font-size: 0.8rem;
         font-family: sans-serif;
         font-weight: 300;
+    }
+    .verve h5 {
+        font-size: 0.8rem;
+        font-family: sans-serif;
+        font-weight: 300;
+        margin-bottom: 2rem;
     }
 }
 @media screen and (max-width: 1000px){
