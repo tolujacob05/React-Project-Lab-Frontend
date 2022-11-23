@@ -28,7 +28,7 @@ const StorePage = () => {
   return (
     <>
       <div className={styles.recent}>
-        <div className={styles.text}>Recent Stores</div>
+        <div className={styles.text}>Stores</div>
         <section className={styles.container}>
           {shops?.map((shop, index) =>
             index < 6 ? (
