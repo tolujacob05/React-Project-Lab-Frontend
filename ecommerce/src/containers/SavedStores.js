@@ -14,7 +14,7 @@ const SavedStores = () => {
 
     var config = {
       method: "get",
-      url: "http://localhost:3001/api/v1/savedstores",
+      url: "https://shopify-nextgen.herokuapp.com/api/v1/savedstores",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
@@ -40,7 +40,7 @@ const SavedStores = () => {
     console.log(id);
     var config = {
       method: "delete",
-      url: "http://localhost:3001/api/v1/savedstores/" + id,
+      url: "https://shopify-nextgen.herokuapp.com/api/v1/savedstores/" + id,
       headers: {
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
@@ -94,7 +94,7 @@ const SavedStores = () => {
                       ? savedStore?.shop?.description.substring(0, 100) + "..."
                       : savedStore?.shop?.description}
                   </p>
-                 
+
                   <Rating
                     allowFraction={true}
                     initialValue={4}
@@ -124,7 +124,7 @@ const SavedStores = () => {
               </div>
             ))
           ) : (
-            <h2 style={{ textAlign: "center", margin: "auto", width:"60vw" }}>
+            <h2 style={{ textAlign: "center", margin: "auto", width: "60vw" }}>
               No Stored saved yet
             </h2>
           )}

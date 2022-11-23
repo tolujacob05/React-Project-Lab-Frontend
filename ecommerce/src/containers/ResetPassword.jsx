@@ -5,37 +5,38 @@ import "./ForgotPassword.css";
 import { useParams, useNavigate } from "react-router-dom";
 
 function ResetPassword() {
-    const { id } = useParams();
-     let navigate = useNavigate();
+  const { id } = useParams();
+  let navigate = useNavigate();
   const handleForgotPassword = async () => {
     if (password === "") {
       return setError("invalid email");
     }
-   var data = JSON.stringify({
-     password: password,
-     passwordConfirm: passwordConfirm,
-   });
+    var data = JSON.stringify({
+      password: password,
+      passwordConfirm: passwordConfirm,
+    });
 
-   var config = {
-     method: "patch",
-     url: "http://localhost:3001/api/v1/users/reset-password/"+id,
-     headers: {
-       "Content-Type": "application/json",
-     },
-     data: data,
-   };
+    var config = {
+      method: "patch",
+      url:
+        "https://shopify-nextgen.herokuapp.com/api/v1/users/reset-password/" +
+        id,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
 
-   axios(config)
-     .then(function (response) {
-       console.log(JSON.stringify(response.data));
-       localStorage.clear()
-       alert("password updated");
-       navigate('/login')
-     })
-     .catch(function (error) {
-       console.log(error);
-     });
-
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        localStorage.clear();
+        alert("password updated");
+        navigate("/login");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
   const [error, setError] = useState("");
   const [password, setPassword] = useState("");

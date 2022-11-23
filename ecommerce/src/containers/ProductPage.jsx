@@ -12,8 +12,8 @@ export default function ProductPage() {
   const [product, setProduct] = useState(null);
   const [price, setPrice] = useState("");
   const [rating, setRating] = useState(null);
-  const [saved, setSaved] = useState(false)
-  const [quantity, setQuantity] = useState(1)
+  const [saved, setSaved] = useState(false);
+  const [quantity, setQuantity] = useState(1);
   let navigate = useNavigate();
   useEffect(() => {
     getProduct();
@@ -24,7 +24,7 @@ export default function ProductPage() {
 
     var config = {
       method: "get",
-      url: "http://localhost:3001/api/v1/products/" + id,
+      url: "https://shopify-nextgen.herokuapp.com/api/v1/products/" + id,
       data: data,
     };
 
@@ -45,10 +45,10 @@ export default function ProductPage() {
         console.log(error);
       });
   };
- 
+
   const [productImages, setproductImages] = useState([]);
   const [imageView, setImageView] = useState([]);
-  
+
   const addToCart = () => {
     var data = {
       productId: id,
@@ -56,7 +56,7 @@ export default function ProductPage() {
     };
     var config = {
       method: "post",
-      url: "http://localhost:3001/api/v1/carts",
+      url: "https://shopify-nextgen.herokuapp.com/api/v1/carts",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
@@ -66,34 +66,32 @@ export default function ProductPage() {
     axios(config)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
-        navigate("/cart")
+        navigate("/cart");
       })
       .catch(function (error) {
         console.log(error);
       });
   };
-const addToSavedProducts = (id)=>{
-  var data = "";
+  const addToSavedProducts = (id) => {
+    var data = "";
 
-  var config = {
-    method: "post",
-    url: "http://localhost:3001/api/v1/savedproducts/"+id,
-    headers: {
-      Authorization:
-        "Bearer "+localStorage.getItem("userToken"),
-    },
-    data: data,
+    var config = {
+      method: "post",
+      url: "https://shopify-nextgen.herokuapp.com/api/v1/savedproducts/" + id,
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("userToken"),
+      },
+      data: data,
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
-
-  axios(config)
-    .then(function (response) {
-      console.log(JSON.stringify(response.data));
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-
-}
   return (
     <>
       <PageTitle title={"product Details"} />
