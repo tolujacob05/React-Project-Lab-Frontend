@@ -60,7 +60,7 @@ const Profile = () => {
                             <h5>New Email</h5>
                             <div className={styles.up}>
                               <form>
-                                <input type="email" placeholder="email" />
+                                <input type="email" placeholder="Email" />
                               </form>
                               <h4>Update</h4>
                             </div>

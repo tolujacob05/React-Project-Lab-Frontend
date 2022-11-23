@@ -28,12 +28,12 @@ const StorePage = () => {
   return (
     <>
       <div className={styles.recent}>
-        <div className={styles.text}>Recent Stores</div>
+        <div className={styles.text}>Stores</div>
         <section className={styles.container}>
           {shops?.map((shop, index) =>
             index < 6 ? (
               <Link to={`/shops/${shop?.name}/${shop._id}`} className="card">
-                <img className={styles.shopImg} src={shop?.image} alt="Shop" />
+                <img className={styles.shopImg} src={shop?.image}  alt="Shop" />
                 <h6>{shop?.name}</h6>
               </Link>
             ) : null

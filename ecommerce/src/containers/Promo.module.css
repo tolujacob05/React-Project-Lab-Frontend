@@ -45,7 +45,7 @@
 .buttons {
     display: flex;
     justify-content: space-evenly;
-    column-gap: 10rem;
+    column-gap: 2rem;
 }
 .buttons h3 {
     display: flex;
