@@ -12,13 +12,13 @@ This is a shopping app named `Shopify` solely for the purpose of helping custome
 ## Technologies 
 Project is created with:
 
-. "ReactJS": "^18.2.0"
-.. "JavaScript"
-... "Bootstrap": "^5.2.2"
-.... "@fortawesome/fontawesome-svg-core": "^6.2.0",
-..... "@fortawesome/free-solid-svg-icons": "^6.2.0",
-...... "@fortawesome/react-fontawesome": "^0.2.0",
-....... "axios": "^1.1.3"
+* "ReactJS": "^18.2.0"
+* "JavaScript"
+* "Bootstrap": "^5.2.2"
+* "@fortawesome/fontawesome-svg-core": "^6.2.0",
+* "@fortawesome/free-solid-svg-icons": "^6.2.0",
+* "@fortawesome/react-fontawesome": "^0.2.0",
+* "axios": "^1.1.3"
 
 ## Setup
 To run this project after cloning from GitHub, install it locally using npm:
@@ -32,10 +32,10 @@ $ npm start
 ## Features
 . Shopping made easier by:
 * Ordering from the comfort of any place you find yourself
-** Ordering from Stores close to your current location
-*** Getting your orders as fast as possible
-**** Comparism of prices from different stores
-***** Stores can safe your orders for you then payment on arrival 
+* Ordering from Stores close to your current location
+* Getting your orders as fast as possible
+* Comparism of prices from different stores
+* Stores can safe your orders for you then payment on arrival 
 
 
 
