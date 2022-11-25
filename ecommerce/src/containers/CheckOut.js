@@ -20,7 +20,7 @@ const CheckOut = () => {
 
     var config = {
       method: "post",
-      url: "http://localhost:3001/api/v1/orders/checkout",
+      url: "https://shopify-nextgen.herokuapp.com/api/v1/orders/checkout",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
@@ -31,7 +31,7 @@ const CheckOut = () => {
       .then(function (response) {
         console.log(JSON.stringify(response.data));
         alert("order complete");
-        getCartItems()
+        getCartItems();
       })
       .catch(function (error) {
         console.log(error);
@@ -41,7 +41,7 @@ const CheckOut = () => {
   const getCartItems = () => {
     var config = {
       method: "get",
-      url: "http://localhost:3001/api/v1/carts/",
+      url: "https://shopify-nextgen.herokuapp.com/api/v1/carts/",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
@@ -94,7 +94,7 @@ const CheckOut = () => {
               <h4>5342 **** **** 1920</h4>
             </div>
           </div>
-          <div className={styles.bigContainer}>
+          {/* <div className={styles.bigContainer}>
             <div className={styles.formContainer}>
               <h3>Ordering From</h3>
               <input type="text" className={styles.form} />
@@ -110,7 +110,7 @@ const CheckOut = () => {
               <h3>ASAP</h3>
               <h3>14:45</h3>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className={styles.method}>
