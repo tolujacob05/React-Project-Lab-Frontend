@@ -3,7 +3,7 @@ import styles from "./Profile.module.css";
 import { FaEnvelope, FaPen, FaSquareFull } from "react-icons/fa";
 import Popup from "./Popup";
 import Popup2 from "./Popup2";
-import Modal from '@material-ui/core/Modal';
+import Modal from "@material-ui/core/Modal";
 import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
@@ -25,7 +25,7 @@ const Profile = () => {
   let navigate = useNavigate();
   const handleLogout = () => {
     localStorage.clear();
-     navigate("/login");
+    navigate("/login");
   };
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   return (
@@ -37,74 +37,73 @@ const Profile = () => {
       {/* Profile Information */}
       <div className={styles.biggest}>
         <div className={styles.profile}>
-          <div>
-            <div>
-              <div className={styles.email}>
-                <p>Email address <br />
-                  {
-                    userInfo?.email
-                  }
-                </p>
-                <div className={styles.change} onClick={handleOpen}>
-                  <p>change</p>
-                  <p>
-                    <FaPen />
-                  </p>
-                  {open && (
-                    <Popup2
-                      content={
-                        <>
-                          <h4>Change Email</h4>
-                          <hr />
-                          <div className={styles.pop}>
-                            <h5>New Email</h5>
-                            <div className={styles.up}>
-                              <form>
-                                <input type="email" placeholder="Email" />
-                              </form>
-                              <h4>Update</h4>
-                            </div>
-                          </div>   
-                        </>
-                      }
-                    />
-                  )}
-                </div>
-              </div>
+          <div
+            style={{ display: "flex", flexDirection: "column", rowGap: "20px" }}
+          >
+            <div className={styles.email}>
+              <p>
+                Email address <br />
+                <small> {userInfo?.email}</small>
+              </p>
+              <button className={styles.change} onClick={handleOpen}>
+                <span>Edit</span>
+                <span>
+                  <FaPen />
+                </span>
 
-              {/* Phone number */}
-              <div className={styles.email2}>
-                <p>Phone Number <br />
-                  {
-                    userInfo?.phoneNumber
-                  }
-                </p>
-                <div className={styles.change2} onClick={handleOpen}>
-                  <p>change</p>
-                  <p>
-                    <FaPen />
-                  </p>
-                  {open && (
-                    <Popup
-                      content={
-                        <>
-                          <h4>Change Phone Number</h4>
-                          <hr />
-                          <div className={styles.pop}>
-                            <h5>New Phone Number</h5>
-                            <div className={styles.up}>
-                              <form>
-                                <input type="tel" placeholder="Phone Number" />
-                              </form>
-                              <h4>Update</h4>
-                            </div>
+                {open && (
+                  <Popup2
+                    content={
+                      <>
+                        <h4>Change Email</h4>
+                        <hr />
+                        <div className={styles.pop}>
+                          <h5>New Email</h5>
+                          <div className={styles.up}>
+                            <form>
+                              <input type="email" placeholder="Email" />
+                            </form>
+                            <h4>Update</h4>
                           </div>
-                        </>
-                      }
-                    />
-                  )}
-                </div>
-              </div>
+                        </div>
+                      </>
+                    }
+                  />
+                )}
+              </button>
+            </div>
+
+            {/* Phone number */}
+            <div className={styles.email}>
+              <p>
+                Phone Number <br />
+                <small>{userInfo?.phoneNumber}</small>
+              </p>
+              <button className={styles.change} onClick={handleOpen}>
+                <span>Edit</span>
+                <span>
+                  <FaPen />
+                </span>
+                {open && (
+                  <Popup
+                    content={
+                      <>
+                        <h4>Change Phone Number</h4>
+                        <hr />
+                        <div className={styles.pop}>
+                          <h5>New Phone Number</h5>
+                          <div className={styles.up}>
+                            <form>
+                              <input type="tel" placeholder="Phone Number" />
+                            </form>
+                            <h4>Update</h4>
+                          </div>
+                        </div>
+                      </>
+                    }
+                  />
+                )}
+              </button>
             </div>
 
             {/* Inbox and other sections */}
@@ -115,20 +114,20 @@ const Profile = () => {
                   <FaEnvelope />
                 </p>
               </div>
-              <div className={styles.voucher}>
+              <div className={styles.inbox}>
                 <h6>Voucher</h6>
               </div>
             </div>
 
             {/* Orders and Recent stores */}
             <div className={styles.span}>
-              <div className={styles.orders}>
+              <div className={styles.inbox}>
                 <h6>Orders</h6>
                 <p>
                   <FaSquareFull />
                 </p>
               </div>
-              <div className={styles.recent}>
+              <div className={styles.inbox}>
                 <h6>Recent Stores</h6>
                 <p>
                   <FaSquareFull />
@@ -138,10 +137,10 @@ const Profile = () => {
 
             {/* Logout and Close account */}
             <div className={styles.article}>
-              <div className={styles.logout} onClick={handleLogout}>
+              <div className={styles.inbox} onClick={handleLogout}>
                 <h6>Logout</h6>
               </div>
-              <div className={styles.close}>
+              <div className={styles.inbox}>
                 <h6>Close Account</h6>
               </div>
             </div>

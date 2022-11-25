@@ -204,7 +204,7 @@ const Cart = () => {
             {savedProducts.length > 0 ? (
               savedProducts?.map((savedProduct) => (
                 <Link
-                  to={"/products/" + savedProduct?.product?._id}
+                  to={"/products/" + savedProduct?._id}
                   key={savedProduct?._id}
                   className={styles.watch}
                 >

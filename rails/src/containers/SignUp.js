@@ -17,7 +17,7 @@ const SignUp = () => {
     var data = JSON.stringify({
       fullName: fullName,
       email: email,
-      phoneNumber: phone,
+      phone: phone,
       password: password,
       passwordConfirm: password,
       role: "user",
@@ -27,6 +27,7 @@ const SignUp = () => {
       method: "post",
       url: "https://shopify-nextgen.herokuapp.com/api/v1/users/signUp",
       headers: {
+        Authorization: "Bearer " + localStorage.getItem("userToken"),
         "Content-Type": "application/json",
       },
       data: data,

@@ -1,0 +1,162 @@
+.main {
+    background: #7AE582;
+    padding: 20px;  
+}
+.menu {
+    position: absolute;
+    z-index: 1;
+    left: 3rem;
+    top: 2.5rem;
+    height: 28px;
+    width: 25px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+.menuBtnBurger {
+    position: absolute;
+    left: rem;
+    top: 1rem;
+    width: 28px;
+    height: 3px;
+    background: black;
+    transition: all 0.5s ease-in-out;
+}
+.menuBtnBurger::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -8px;
+    width: 28px;
+    height: 3px;
+    background: black;
+    transition: all 0.5s ease-in-out;
+}
+.menuBtnBurger::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 9px;
+    width: 28px;
+    height: 3px;
+    background: black;
+    transition: all 0.5s ease-in-out;
+}
+.menuBtnBurger.open {
+    transform: rotate(720deg);
+    background: transparent;
+}
+.menuBtnBurger.open::before {
+    transform: rotate(45deg) translate(5px, 8px);
+}
+.menuBtnBurger.open::after {
+    width: 28px;
+    transform: rotate(-45deg) translate(3px, -7px);
+}
+.empty {
+    position: absolute;
+    left: 5rem;
+    border: 2px solid white;
+    height: 3.8vh;
+    width: 10vw;
+    background: rgb(216, 211, 200);
+}
+.field {
+    display: flex;
+    justify-content: center;
+}
+.search {
+    position: relative;
+    top: 20px;
+    left: -5rem;
+    border: 2px solid black;
+    font-size: 1.5rem;
+    padding: 2px;
+    background: black;
+    width: 38px;
+}
+.search h4 {
+    color: white;
+    position: relative;
+    right: 0.5rem;
+}
+.inputText {
+    font-size: 1rem;
+    font-weight: 400;
+    height: 35px;
+    width: 45%;
+    position: relative;
+    top: 20px;   
+    left: -5rem;
+}
+::placeholder {
+    gap: 10px;
+    padding: 10px;
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: 1rem;
+    color: black;
+}
+.icons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 2rem;
+    margin-bottom: 5px;
+    position: relative;
+    top: -10px;
+    font-size: 1.5rem;
+}
+.icons a {
+    color: none;
+}
+.account {
+    display: flex;
+    gap: 0.5rem;
+}
+.account a {
+    font-size: 1rem;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+.help {
+    display: flex;
+    gap: 0.5rem;
+}
+.help a {
+    font-size: 1rem;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+.cart {
+    display: flex;
+    gap: 0.5rem;
+}
+.cart a {
+    font-size: 1rem;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+nav ul {
+    display: flex;
+    gap: 4rem;
+}
+nav ul li {
+    list-style-type: none;
+}
+a {
+    color: black;
+    font-style: sans-serif;
+    text-decoration: none;
+}
+@media screen and (max-width: 1000px) {
+    .main {
+        display: flex;
+    }
+    
+}

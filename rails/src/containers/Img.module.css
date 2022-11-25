@@ -1,0 +1,43 @@
+.thinner {
+    padding-bottom: 20px;
+    margin-top: 2rem;
+}
+.image {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    justify-content: space-evenly;
+    padding: 1rem;
+}
+.image h5 {
+    font-size: 1rem;
+    font-weight: 300;
+}
+.image h4 {
+    margin-top: 1rem;
+    font-weight: 300;
+}
+.line {
+    border: 2px solid #FFFFFF;
+    background: #FFFFFF;
+}
+.delete {
+    margin-left: 2rem;
+    padding: 10px;
+    display: flex;
+    gap: 7px;   
+}
+.delete, h5 {
+    font-family: sans-serif;
+    font-size: 1rem;
+}
+@media ( max-width: 400px ) {
+    .image {
+        display: flex;
+        gap: 3rem;
+        padding: 1rem;
+    }
+    .image h4 {
+        font-size: 0.7rem;
+    }
+}
