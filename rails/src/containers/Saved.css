@@ -1,0 +1,33 @@
+.savedProductContainer {
+  display: flex;
+  padding: 40px;
+  flex-direction: column;
+  row-gap: 30px;
+  justify-content: center;
+  align-items: center;
+  background: #E3F9E5;
+}
+.savedProduct{
+    background-color: #fff;
+    display: flex;
+    padding: 40px 20px;
+    column-gap: 15px;
+    width: 70%;
+    
+}
+.savedProduct img{
+    width: 150px;
+    object-fit: contain;
+}
+.productDescription{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.actions{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 20px;
+}
