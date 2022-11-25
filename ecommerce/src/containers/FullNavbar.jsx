@@ -1,9 +1,20 @@
 import React from "react";
 import "./FullNavbar.css";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useEffect } from "react";
 
 export default function FullNavbar() {
-  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+
+  const [user, setUser] = useState(
+    JSON.parse(localStorage.getItem("userInfo"))
+  );
+  useEffect(() => {
+    return setUser(JSON.parse(localStorage.getItem("userInfo")))
+     
+  }, [])
+  
+ 
   return (
     <>
       <div className="navbar">
@@ -86,7 +97,7 @@ export default function FullNavbar() {
               />
             </svg>
 
-            <Link to={"/account"}>{userInfo?.fullName || "account"}</Link>
+            <Link to={"/account"}>{user?.fullName || "account"}</Link>
           </div>
           <div className="help">
             <svg

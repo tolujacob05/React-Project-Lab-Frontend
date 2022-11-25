@@ -17,25 +17,25 @@ body {
 }
 .image {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: space-evenly;
   gap: 5rem;
   border-radius: 10%;
   padding: 1rem;
+  
 }
 
 .line {
-  border: 2px solid #ffffff;
   background: #ffffff;
   border-radius: 8px;
+   color: black !important;
   filter: drop-shadow(0px 2px 15px rgba(0, 0, 0, 0.1));
 }
 
 .lines {
-  border: 2px solid #ffffff;
   background: #ffffff;
   border-radius: 8px;
-  height: 100px;
+  color: black !important;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -182,9 +182,10 @@ h5 {
 }
 .saved {
   display: flex;
-  /* justify-content: ; */
-  column-gap: 20px;
+  column-gap: 15px;
+  flex-wrap: wrap;
   align-items: center;
+  width: fit-content;
 }
 .palm {
     color: black;

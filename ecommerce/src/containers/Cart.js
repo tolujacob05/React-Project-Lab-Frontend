@@ -95,7 +95,11 @@ const Cart = () => {
               <div className={styles.lines}>No item in your cart</div>
             )}
             {cartInfo?.map((cartItem) => (
-              <div className={styles.line} key={cartItem._id}>
+              <div
+                to={"/products/" + cartItem?.productId?._id}
+                className={styles.line}
+                key={cartItem._id}
+              >
                 <div className={styles.image}>
                   <img
                     width={100}
@@ -103,7 +107,11 @@ const Cart = () => {
                     alt="Shoes"
                   />
                   <div>
-                    <h4></h4>
+                    <Link to={"/products/" + cartItem?.productId?._id}>
+                      <h3 style={{ color: "black" }}>
+                        {cartItem?.productId?.name}
+                      </h3>
+                    </Link>
                     <br />
                     <h5>
                       {cartItem?.productId?.description.length > 100
@@ -195,17 +203,31 @@ const Cart = () => {
           <div className={styles.saved}>
             {savedProducts.length > 0 ? (
               savedProducts?.map((savedProduct) => (
-                <div key={savedProduct?._id} className={styles.watch}>
+                <Link
+                  to={"/products/" + savedProduct?._id}
+                  key={savedProduct?._id}
+                  className={styles.watch}
+                >
                   <img
                     width={150}
                     src={savedProduct?.product?.images[0]}
                     alt={savedProduct?.product?.name || "product"}
                   />
-                  <p> {savedProduct?.product?.name} </p>
-                </div>
+                  <p
+                    style={{
+                      textAlign: "center",
+                      margin: "auto",
+                      color: "black",
+                    }}
+                  >
+                    {savedProduct?.product?.name}{" "}
+                  </p>
+                </Link>
               ))
             ) : (
-              <h3 style={{ textAlign: "center", margin: "auto" }}>
+              <h3
+                style={{ textAlign: "center", margin: "auto", color: "black" }}
+              >
                 No product saved yet
               </h3>
             )}
