@@ -3,14 +3,13 @@ import F10 from "./Pictures/F10.png";
 import styles from "./Login.module.css";
 import { FaFacebook, FaGoogle, FaTwitter } from "react-icons/fa";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  let navigate = useNavigate();
-
+ 
   const handleLogin = (e) => {
     e.preventDefault();
 
@@ -21,7 +20,7 @@ const Login = () => {
 
     var config = {
       method: "post",
-      url: "https://shopify-nextgen.herokuapp.com/api/v1/users/signIn",
+      url: "https://shopify-nextgen.onrender.com/api/v1/users/signIn",
       data: data,
     };
     console.log(data);
@@ -33,7 +32,8 @@ const Login = () => {
             "userInfo",
             JSON.stringify(response.data.data.user)
           );
-          navigate("/");
+          window.location.href = "/"
+         
         } else {
           setError(response.data);
           alert(response.data.err.message);

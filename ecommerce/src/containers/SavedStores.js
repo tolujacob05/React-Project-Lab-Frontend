@@ -14,7 +14,7 @@ const SavedStores = () => {
 
     var config = {
       method: "get",
-      url: "https://shopify-nextgen.herokuapp.com/api/v1/savedstores",
+      url: "https://shopify-nextgen.onrender.com/api/v1/savedstores",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
@@ -40,7 +40,7 @@ const SavedStores = () => {
     console.log(id);
     var config = {
       method: "delete",
-      url: "https://shopify-nextgen.herokuapp.com/api/v1/savedstores/" + id,
+      url: "https://shopify-nextgen.onrender.com/api/v1/savedstores/" + id,
       headers: {
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },

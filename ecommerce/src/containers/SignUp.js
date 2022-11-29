@@ -3,14 +3,12 @@ import F10 from "./Pictures/F10.png";
 import styles from "./SignUp.module.css";
 import { FaFacebook, FaGoogle, FaTwitter } from "react-icons/fa";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
-  let navigate = useNavigate();
 
   const handleSignUp = (e) => {
     e.preventDefault();
@@ -25,7 +23,7 @@ const SignUp = () => {
 
     var config = {
       method: "post",
-      url: "https://shopify-nextgen.herokuapp.com/api/v1/users/signUp",
+      url: "https://shopify-nextgen.onrender.com/api/v1/users/signUp",
       headers: {
         "Content-Type": "application/json",
       },
@@ -40,7 +38,7 @@ const SignUp = () => {
             "userInfo",
             JSON.stringify(response.data.data.user)
           );
-          navigate(`/`);
+          window.location.href = "/";
         }
       })
       .catch(function (error) {

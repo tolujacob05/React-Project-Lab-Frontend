@@ -13,7 +13,7 @@ const Saved = () => {
 
     var config = {
       method: "get",
-      url: "https://shopify-nextgen.herokuapp.com/api/v1/savedproducts/",
+      url: "https://shopify-nextgen.onrender.com/api/v1/savedproducts/",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },

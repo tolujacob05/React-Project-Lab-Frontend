@@ -21,8 +21,8 @@ export default function Categories() {
       method: "get",
       url:
         category === ""
-          ? "https://shopify-nextgen.herokuapp.com/api/v1/products"
-          : "https://shopify-nextgen.herokuapp.com/api/v1/products/categories/" +
+          ? "https://shopify-nextgen.onrender.com/api/v1/products"
+          : "https://shopify-nextgen.onrender.com/api/v1/products/categories/" +
             category,
       headers: {
         Authorization:

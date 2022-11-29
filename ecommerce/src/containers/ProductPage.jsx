@@ -24,7 +24,7 @@ export default function ProductPage() {
 
     var config = {
       method: "get",
-      url: "https://shopify-nextgen.herokuapp.com/api/v1/products/" + id,
+      url: "https://shopify-nextgen.onrender.com/api/v1/products/" + id,
       data: data,
     };
 
@@ -56,7 +56,7 @@ export default function ProductPage() {
     };
     var config = {
       method: "post",
-      url: "https://shopify-nextgen.herokuapp.com/api/v1/carts",
+      url: "https://shopify-nextgen.onrender.com/api/v1/carts",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("userToken")}`,
       },

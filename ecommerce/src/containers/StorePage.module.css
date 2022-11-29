@@ -4,21 +4,19 @@
   padding: 2rem;
   margin: 0 1rem 1rem;
 }
-.shopImg{
-  width: 200px;
+.shopImg {
+  width: 140px;
+  object-fit: contain;
 }
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    border: 2px solid white;
-    height: 30vh;
-    background: #E3F9E5;
-    margin: 1rem;
-}
-.container img {
-    border: 2px solid black;
-    background: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 2px solid white;
+  height: 30vh;
+  margin: 1rem;
+  color: black;
+  text-align: center;
 }
 .container h6 {
   font-size: 0.9rem;
@@ -29,9 +27,12 @@
   font-family: sans-serif;
 }
 .best {
-  margin: 10px;
+  margin: 10px 10px 30px;
+  padding: 30px;
   border: 2px solid white;
   background: white;
+  /* width: ; */
+  
 }
 .best h4 {
   padding: 10px;
@@ -40,14 +41,30 @@
 }
 .prices {
   display: flex;
-  justify-content: space-evenly;
+  /* justify-content: space-around; */
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+    gap: 10px 12px;
 }
 .chroma {
-  border: 8px solid white;
-  background: rgb(239, 234, 234);
-  border-radius: 10%; 
+  border: 1px solid rgb(239, 234, 234);
+  border-radius: 8px;
+  width: 200px;
+  padding: 10px;
+  color: black;
+  
+  
+  /* flex: 1; */
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
 }
-.chroma img {
+/* .chroma > * {
+  flex: 1;
+} */
+/* .chroma img {
   padding: 1rem;
 }
 .chroma h5 {
@@ -61,11 +78,11 @@
   justify-content: center;
   font-size: 0.9rem;
   font-family: sans-serif;
-}
+} */
 .sun {
   border: 8px solid white;
   background: rgb(239, 234, 234);
-  border-radius: 10%; 
+  border-radius: 10%;
 }
 .sun img {
   padding: 1rem;
@@ -85,7 +102,7 @@
 .tomato {
   border: 8px solid white;
   background: rgb(239, 234, 234);
-  border-radius: 10%; 
+  border-radius: 10%;
 }
 .tomato img {
   padding: 1rem;
@@ -105,7 +122,7 @@
 .corn {
   border: 8px solid white;
   background: rgb(239, 234, 234);
-  border-radius: 10%; 
+  border-radius: 10%;
 }
 .corn img {
   padding: 1rem;

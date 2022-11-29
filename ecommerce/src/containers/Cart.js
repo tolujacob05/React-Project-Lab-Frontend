@@ -18,7 +18,7 @@ const Cart = () => {
   const getCartItems = () => {
     var config = {
       method: "get",
-      url: "https://shopify-nextgen.herokuapp.com/api/v1/carts/",
+      url: "https://shopify-nextgen.onrender.com/api/v1/carts/",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
@@ -45,7 +45,7 @@ const Cart = () => {
   const handleDeleteCartItem = (id) => {
     var config = {
       method: "delete",
-      url: "https://shopify-nextgen.herokuapp.com/api/v1/carts/" + id,
+      url: "https://shopify-nextgen.onrender.com/api/v1/carts/" + id,
       headers: {
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
@@ -65,7 +65,7 @@ const Cart = () => {
 
     var config = {
       method: "get",
-      url: "https://shopify-nextgen.herokuapp.com/api/v1/savedproducts/",
+      url: "https://shopify-nextgen.onrender.com/api/v1/savedproducts/",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("userToken"),
       },
@@ -179,7 +179,7 @@ const Cart = () => {
                 </div>
                 <hr />
                 <div className={styles.checkButton}>
-                  <a href="checkout">Check Out</a>
+                  <a href={delivery <= 0 ? "#" : "/checkout"}>Check Out</a>
                 </div>
               </div>
             </div>

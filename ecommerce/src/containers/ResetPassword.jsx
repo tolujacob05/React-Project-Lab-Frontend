@@ -19,7 +19,7 @@ function ResetPassword() {
     var config = {
       method: "patch",
       url:
-        "https://shopify-nextgen.herokuapp.com/api/v1/users/reset-password/" +
+        "https://shopify-nextgen.onrender.com/api/v1/users/reset-password/" +
         id,
       headers: {
         "Content-Type": "application/json",

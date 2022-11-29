@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Profile.module.css";
-import { FaEnvelope, FaPen, FaSquareFull } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaHistory,
+  FaPen,
+  FaStoreAlt,
+  FaTicketAlt,
+} from "react-icons/fa";
+import { FiLogOut, FiXCircle } from "react-icons/fi";
 import Popup from "./Popup";
 import Popup2 from "./Popup2";
-import Modal from "@material-ui/core/Modal";
-import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   /*const [isOpen, setIsOpen] = useState(false);
@@ -22,10 +27,11 @@ const Profile = () => {
   const handleOpen = () => {
     setOpen(true);
   };
-  let navigate = useNavigate();
+
   const handleLogout = () => {
     localStorage.clear();
-    navigate("/login");
+
+    window.location.href = "/login";
   };
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   return (
@@ -116,6 +122,9 @@ const Profile = () => {
               </div>
               <div className={styles.inbox}>
                 <h6>Voucher</h6>
+                <p>
+                  <FaTicketAlt />
+                </p>
               </div>
             </div>
 
@@ -124,13 +133,13 @@ const Profile = () => {
               <div className={styles.inbox}>
                 <h6>Orders</h6>
                 <p>
-                  <FaSquareFull />
+                  <FaHistory />
                 </p>
               </div>
               <div className={styles.inbox}>
                 <h6>Recent Stores</h6>
                 <p>
-                  <FaSquareFull />
+                  <FaStoreAlt />
                 </p>
               </div>
             </div>
@@ -139,9 +148,15 @@ const Profile = () => {
             <div className={styles.article}>
               <div className={styles.inbox} onClick={handleLogout}>
                 <h6>Logout</h6>
+                <p>
+                  <FiLogOut />
+                </p>
               </div>
               <div className={styles.inbox}>
                 <h6>Close Account</h6>
+                <p>
+                  <FiXCircle color="red"/>
+                </p>
               </div>
             </div>
           </div>
